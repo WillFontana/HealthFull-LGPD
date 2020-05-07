@@ -1,0 +1,15 @@
+{
+  "name": "healthfull-backend",
+  "version": "1.0.0",
+  "description": "Backend do projeto HealthFull - LGPD",
+  "main": "index.js",
+  "scripts": {
+    "test":"echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
+  },
+  "author": "Willyan Fontana",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
