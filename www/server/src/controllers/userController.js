@@ -1,6 +1,7 @@
 const connection = require('../database/connections');
 const crypto = require('crypto');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const saltRounds = 10;
 module.exports = {
   async create(request, response) {
@@ -18,8 +19,18 @@ module.exports = {
         email,
         password
       });
-      console.log(request.body);
-      return response.json({ id });
+
+      const payload = {
+        user: {
+          id: id,
+        }
+      }
+
+      const token = jwt.sign({ id: id }, 'secret-key', {
+        expiresIn: 300,
+      });
+
+      return response.json({ id, token, payload });
     } catch (error) {
       console.log(error);
       return response.status(500).json({ message: 'Houve um erro ao cadastrar o usuário' });

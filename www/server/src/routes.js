@@ -4,7 +4,10 @@ const userController = require('./controllers/userController');
 
 const sessionController = require('./controllers/sessionController');
 
+const auth = require('./middleware/auth');
+
 const routes = express.Router();
+
 
 /**
  * Rotas para a criação e listagem de usuários
@@ -21,10 +24,13 @@ routes.delete('/users', userController.delete);
 
 
 /**
- * Rotas para Login e logout de usuário
+ * Rotas para Login, autenticação e logout de usuário
  */
 
 // Login de usuário
 routes.post('/login', sessionController.create);
+
+// Autenticação do usuário
+routes.get('/login', auth, sessionController.index);
 
 module.exports = routes;
