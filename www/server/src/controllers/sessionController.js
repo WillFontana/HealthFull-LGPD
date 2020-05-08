@@ -11,7 +11,6 @@ module.exports = {
       const passwordHash = await connection('users').where('name', usuario)
         .orWhere('email', usuario)
         .select('password').first();
-      console.log(passwordHash);
       const match = await bcrypt.compare(request.body.password, passwordHash.password);
 
       if (!match) {
@@ -20,7 +19,6 @@ module.exports = {
       const userId = await connection('users').where('name', usuario)
         .orWhere('email', usuario)
         .select('id').first();
-
 
       const token = jwt.sign({ userId }, 'secret-key', {
         expiresIn: '1m'
