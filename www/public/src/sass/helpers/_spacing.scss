@@ -1,0 +1,61 @@
+@each $class, $space in $spacing {
+  @if $class != ui {
+    @each $side in $spacing-sides {
+      ._m#{str-slice($side, 0, 1)}-#{$class} {
+        margin-#{$side}: $space;
+      }
+
+      ._p#{str-slice($side, 0, 1)}-#{$class} {
+        padding-#{$side}: $space;
+      }
+    }
+
+    ._my-#{$class} {
+      margin-top: $space;
+      margin-bottom: $space;
+    }
+
+    ._py-#{$class} {
+      padding-top: $space;
+      padding-bottom: $space;
+    }
+
+    ._mx-#{$class} {
+      margin-right: $space;
+      margin-left: $space;
+    }
+
+    ._px-#{$class} {
+      padding-right: $space;
+      padding-left: $space;
+    }
+  } @else if $class == ui {
+    ._#{$class}-space-y {
+      padding-top: ($space / 2);
+      padding-bottom: ($space / 2);
+    }
+
+    ._#{$class}-space-top {
+      padding-top: ($space / 2);
+    }
+
+    ._#{$class}-space-bot {
+      padding-bottom: ($space / 2);
+    }
+
+    @include media-min(md) {
+      ._#{$class}-space-y {
+        padding-top: $space;
+        padding-bottom: $space;
+      }
+
+      ._#{$class}-space-top {
+        padding-top: $space;
+      }
+
+      ._#{$class}-space-bot {
+        padding-bottom: $space;
+      }
+    }
+  }
+}

@@ -1,0 +1,272 @@
+$white:                       #FFF !default;
+$ease-white:                  #F2F2F2 !default;
+$black:                       #000 !default;
+$black-10:            				darken($white, 10%) !default; // #e6e6e6
+$black-20:                 		darken($white, 20%) !default; // #cccccc
+$black-30:                 		darken($white, 30%) !default; // #b3b3b3
+$black-40:                 		darken($white, 40%) !default; // #999999
+$black-50:                 		darken($white, 50%) !default; // #808080
+$black-60:                 		darken($white, 60%) !default; // #666666
+$black-70:                 		darken($white, 70%) !default; // #4d4d4d
+$black-80:                 		darken($white, 80%) !default; // #333333
+$black-90:                 		darken($white, 90%) !default; // #191919
+
+$brand-success:             	#2ecc71 !default;
+$brand-success-darken:        #27ae60 !default;
+$brand-info:                	#3498db !default;
+$brand-info-darken:           #2980b9 !default;
+$brand-warning:             	#f1c40f !default;
+$brand-warning-darken:        #f39c12 !default;
+$brand-danger:             	  #e74c3c !default;
+$brand-danger-darken:      	  #c0392b !default;
+
+$primary-color:      				  #08090A !default;
+$primary-color-darken:     		darken($primary-color, 10%) !default;
+$primary-color-lighten:     	lighten($primary-color, 10%) !default;
+$primary-color-contrast:      $white !default;
+
+$secondary-color:					    #A7A2A9 !default;
+$secondary-color-darken:     	darken($secondary-color, 10%) !default;
+$secondary-color-lighten:     lighten($secondary-color, 10%) !default;
+$secondary-color-contrat:			$black !default;
+
+$variant-color-1:					    #575A5E !default;
+$variant-color-1-darken:     	darken($secondary-color, 10%) !default;
+$variant-color-1-lighten:     lighten($secondary-color, 10%) !default;
+$variant-color-1-contrat:			$white !default;
+
+$variant-color-2:					    #222823 !default;
+$variant-color-2-darken:     	darken($secondary-color, 10%) !default;
+$variant-color-2-lighten:     lighten($secondary-color, 10%) !default;
+$variant-color-2-contrat:			$white !default;
+
+$variant-color-3:					    #F4F7F5 !default;
+$variant-color-3-darken:     	darken($secondary-color, 10%) !default;
+$variant-color-3-lighten:     lighten($secondary-color, 10%) !default;
+$variant-color-3-contrat:			$white !default;
+
+$label-color:                 $primary-color;
+$scrollbar-color:             $primary-color;
+$scrollbar-background:        $secondary-color;
+
+$line-height-base:            1.5 !default;
+$font-base:  				          'Roboto', sans-serif !default;
+$font-face:  				          'Baloo Bhaina 2', cursive !default;
+$font-size-root:          		10px !default;
+$fw-thin: 							      100 !default;
+$fw-light: 						        300 !default;
+$fw-regular: 						      400 !default;
+$fw-medium: 					        500 !default;
+$fw-semi-bold: 					      600 !default;
+$fw-bold: 							      700 !default;
+$fw-black: 							      900 !default;
+
+$typo-color-dark-text-primary: $black-80 !default;
+$typo-color-dark-text-secondary: $black-60 !default;
+
+$typo-color-light-text-primary: $white !default;
+$typo-color-light-text-secondary: rgba($white, .7) !default;
+
+$typo-display-2-font: 				$font-face !default;
+$typo-display-2-font-size: 	  34px !default;
+$typo-display-2-font-size-resp: 30px !default;
+$typo-display-2-font-weight:  $fw-regular !default;
+
+$typo-display-1-font: 				$font-face !default;
+$typo-display-1-font-size: 		30px !default;
+$typo-display-1-font-size-resp: 26px !default;
+$typo-display-1-font-weight: 	$fw-regular !default;
+
+$typo-headline-font: 				  $font-face !default;
+$typo-headline-font-size: 		24px !default;
+$typo-headline-font-size-resp: 20px !default;
+$typo-headline-font-weight: 	$fw-regular !default;
+
+$typo-sub-heading-font: 			$font-face !default;
+$typo-sub-heading-font-size: 	16px !default;
+$typo-sub-heading-font-size-resp: $typo-sub-heading-font-size !default;
+$typo-sub-heading-font-weight: $fw-regular !default;
+
+$typo-title-font: 					  $font-face !default;
+$typo-title-font-size: 			  20px !default;
+$typo-title-font-size-resp:   18px !default;
+$typo-title-font-weight: 			$fw-medium !default;
+
+$typo-body-2-font: 				    $font-base !default;
+$typo-body-2-font-size: 			14px !default;
+$typo-body-2-font-size-resp: 	$typo-body-2-font-size !default;
+$typo-body-2-font-weight: 		$fw-regular !default;
+
+$typo-body-1-font: 				    $font-base !default;
+$typo-body-1-font-size: 			12px !default;
+$typo-body-1-font-size-resp: 	$typo-body-1-font-size !default;
+$typo-body-1-font-weight: 		$fw-regular !default;
+
+$typo-caption-font: 				  $font-base !default;
+$typo-caption-font-size: 			11px !default;
+$typo-caption-font-size-resp: $typo-caption-font-size !default;
+$typo-caption-font-weight: 		$fw-regular !default;
+
+$typo-button-font: 				    $font-face !default;
+$typo-button-font-size: 			14px !default;
+$typo-button-font-size-resp: 	$typo-button-font-size !default;
+$typo-button-font-weight: 		$fw-medium !default;
+
+$typo-variants: (
+  "display-2": (
+    font: $typo-display-2-font,
+    size: $typo-display-2-font-size,
+    size-resp: $typo-display-2-font-size-resp,
+    weight: $typo-display-2-font-weight
+  ),
+  "display-1": (
+    font: $typo-display-1-font,
+    size: $typo-display-1-font-size,
+    size-resp: $typo-display-1-font-size-resp,
+    weight: $typo-display-1-font-weight
+  ),
+  "headline": (
+    font: $typo-headline-font,
+    size: $typo-headline-font-size,
+    size-resp: $typo-headline-font-size-resp,
+    weight: $typo-headline-font-weight
+  ),
+  "title": (
+    font: $typo-title-font,
+    size: $typo-title-font-size,
+    size-resp: $typo-title-font-size-resp,
+    weight: $typo-title-font-weight
+  ),
+  "sub-heading": (
+    font: $typo-sub-heading-font,
+    size: $typo-sub-heading-font-size,
+    size-resp: $typo-title-font-size-resp,
+    weight: $typo-sub-heading-font-weight
+  ),
+  "body-2": (
+    font: $typo-body-2-font,
+    size: $typo-body-2-font-size,
+    size-resp: $typo-body-2-font-size-resp,
+    weight: $typo-body-2-font-weight
+  ),
+  "body-1": (
+    font: $typo-body-1-font,
+    size: $typo-body-1-font-size,
+    size-resp: $typo-body-1-font-size-resp,
+    weight: $typo-body-1-font-weight
+  ),
+  "caption": (
+    font: $typo-caption-font,
+    size: $typo-caption-font-size,
+    size-resp: $typo-caption-font-size-resp,
+    weight: $typo-caption-font-weight
+  ),
+  "button": (
+    font: $typo-button-font,
+    size: $typo-button-font-size,
+    size-resp: $typo-button-font-size-resp,
+    weight: $typo-button-font-weight
+  ),
+) !default;
+
+$typo-colors: (
+  "primary": $primary-color,
+  "secondary": $secondary-color,
+  "dark-primary": $typo-color-dark-text-primary,
+  "dark-secondary": $typo-color-dark-text-secondary,
+  "light-primary": $typo-color-light-text-primary,
+  "light-secondary": $typo-color-light-text-secondary
+) !default;
+
+$typo-weights: (
+  thin: $fw-thin,
+  light: $fw-light,
+  regular: $fw-regular,
+  medium: $fw-medium,
+  semi: $fw-semi-bold,
+  bold: $fw-bold,
+  black: $fw-black
+) !default;
+
+$body-bg:       					    $ease-white !default;
+$body-font-size:       			  1.6rem !default;
+
+$enable-rounded:              true !default;
+
+$border-width:                2px !default;
+
+$border-radius-sm:            2px !default;
+$border-radius-md:            4px !default;
+$border-radius-lg:            10px !default;
+$border-radius-xl:            30px !default;
+$border-radius-base:          $border-radius-lg !default;
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1200px
+) !default;
+
+$gutter-xs:                   5px !default;
+$gutter-sm:                   10px !default;
+$gutter-md:                   16px !default;
+$gutter-lg:                   20px !default;
+$gutter-xl:                   32px !default;
+$gutter-ui:                   100px !default;
+
+$content-all-width:           map-get($breakpoints, xl) !default;
+$content-all-pad-x:           $gutter-md !default;
+
+$icons-sizes: (
+  xs: 16px,
+  sm: 20px,
+  md: 24px,
+  lg: 32px,
+  xl: 48px
+) !default;
+
+$icons-fills: (
+  "primary": $primary-color,
+  "secondary": $secondary-color
+) !default;
+
+$divider-line-width: 		      1px !default;
+$divider-line-bg: 		        #EEE !default;
+
+$spacing: (
+  xs: $gutter-xs,
+  sm: $gutter-sm,
+  md: $gutter-md,
+  lg: $gutter-lg,
+  xl: $gutter-xl,
+  ui: $gutter-ui
+) !default;
+
+$spacing-sides: (top, right, bottom, left) !default;
+
+$transition-base:             all .2s ease-in-out !default;
+
+$text-field-bg:               white !default;
+$text-field-height:           40px !default;
+$text-field-border-width:     $border-width !default;
+$text-field-border-color:     #ccc !default;
+$text-field-padding-x:        $gutter-sm !default;
+$text-field-font-size:        $typo-body-2-font-size !default;
+$text-field-font-size-resp:   $typo-body-2-font-size-resp !default;
+$text-field-font:             $typo-body-2-font !default;
+$text-field-font-weight:      $typo-body-2-font-weight !default;
+$text-field-font-color:       $typo-color-dark-text-primary !default;
+
+$text-field-focus-border-color: $primary-color !default;
+
+$button-base-height:          40px !default;
+$button-base-pad-x:           $gutter-md !default;
+$button-base-bg:              $primary-color !default;
+$button-base-bg-hover:        $primary-color-darken !default;
+$button-base-color:           $primary-color-contrast !default;
+
+$button-base-out-b-width:     $border-width !default;
+$button-base-out-b-color:     $primary-color !default;
+$button-base-out-color:       $primary-color !default;
+$button-base-out-bg:          transparent !default;

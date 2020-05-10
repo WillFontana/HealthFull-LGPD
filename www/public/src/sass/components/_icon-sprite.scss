@@ -1,0 +1,10 @@
+.icon-sprite {
+  @include aspect-ratio(1, 1);
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyOCcgaGVpZ2h0PScyOCcgc3R5bGU9J2JhY2tncm91bmQ6I2ZmZic+PHBhdGggZD0nbTAgMGgxNHYxNEgwem0xNCAxNGgxNHYxNGgtMTR6JyBmaWxsPScjZjJmMmYyJyAvPjwvc3ZnPg==");
+}
+
+.grid-row.icon-sprite-grid {
+  [class^=col-] {
+    border: $border-width dashed $primary-color;
+  }
+}

@@ -1,0 +1,59 @@
+$grid-font-size: 16px !default;
+$grid-columns: 12 !default;
+$grid-gutter-default: 1em !default;
+$gutters-grid: (
+  zero: 0px,
+  md: $gutter-md,
+  lg: $gutter-lg,
+  xl: $gutter-xl
+) !default;
+
+.grid-row {
+  font-size: $grid-font-size;
+	margin: ($grid-gutter-default / -2);
+	display: flex;
+	flex-wrap: wrap;
+
+  [class^=col-] {
+    margin-right: ($grid-gutter-default / 2);
+		margin-left: ($grid-gutter-default / 2);
+  }
+
+  [class^=col-]:not(.col) {
+    width: 100%;
+  }
+
+  [class^=col-]:not(.-un-margin-y) {
+    margin-top: ($grid-gutter-default / 2);
+		margin-bottom: ($grid-gutter-default / 2);
+  }
+
+  > .col {
+    flex: 1 0 auto;
+		max-width: 100%;
+  }
+
+  @for $i from 1 through $grid-columns {
+    > .col-#{$i} {
+      flex-basis: calc((100% / #{$grid-columns} * #{$i}) - #{$grid-gutter-default});
+      max-width: calc((100% / #{$grid-columns} * #{$i}) - #{$grid-gutter-default});
+    }
+  }
+
+  @each $device, $size in $breakpoints {
+    @include media-min($device) {
+      @for $i from 1 through $grid-columns {
+        > .col-#{$device}-#{$i} {
+          flex-basis: calc((100% / #{$grid-columns} * #{$i}) - #{$grid-gutter-default});
+          max-width: calc((100% / #{$grid-columns} * #{$i}) - #{$grid-gutter-default});
+        }
+      }
+    }
+  }
+
+  @each $class, $gutter in $gutters-grid {
+    &.-gutter-#{$class} {
+      font-size: $gutter;
+    }
+  }
+}

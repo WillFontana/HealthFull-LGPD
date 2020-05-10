@@ -1,0 +1,27 @@
+._text-truncate {
+  @include text-truncate;
+}
+
+._text-right {
+  text-align: right;
+}
+
+._text-center {
+  text-align: center;
+}
+
+._text-left {
+  text-align: left;
+}
+
+._upper {
+  text-transform: uppercase;
+}
+
+._d-block {
+  display: block;
+}
+
+._w-100 {
+  width: 100%;
+}

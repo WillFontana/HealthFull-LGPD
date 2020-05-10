@@ -1,0 +1,175 @@
+.main-button {
+  @include radius;
+  @include transition;
+  @include size(auto, $button-base-height);
+  @include centerFlex;
+  outline: none;
+  user-select: none;
+  border: 2px solid $button-base-bg;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  // texto do botão
+  .text {
+    @include transition;
+    font-size: 14px;
+    font-family: $font-base;
+    font-weight: bold;
+    padding: 0px 10px;
+  }
+
+  // Svg padrão
+  .svg-icon {
+    @include size(24px);
+    @include transition;
+    stroke: darken($button-base-color, 20%);
+  }
+
+  // hover
+  &:hover {
+    border-color: $primary-color-lighten;
+    background-color: $primary-color-lighten;
+    .text {
+      color: $white;
+    }
+    .svg-icon {
+      stroke: $white;
+    }
+  }
+
+  // ativo
+  &:active {
+    @include transition(0s);
+    border-color: $primary-color;
+    background-color: $primary-color;
+    color: $white;
+  }
+
+  // botão danger
+  &.-primary {
+    border-color: $primary-color;
+    background-color: $primary-color;
+    .text {
+      color: $white;
+    }
+    .svg-icon {
+      stroke: $white;
+    }
+    &:hover {
+      border-color: $primary-color-lighten;
+      background-color: $primary-color-lighten;
+      .text {
+        color: $white;
+      }
+      .svg-icon {
+        stroke: $white;
+      }
+    }
+    &:active {
+      border-color: $primary-color-darken;
+      background-color: $primary-color-darken;
+    }
+    &.-loading {
+      overflow: hidden;
+      position: relative;
+      background-color: lighten($primary-color-lighten, 3%);
+      .text {
+        position: relative;
+        color: $white;
+      }
+      .svg-icon {
+        position: relative;
+        stroke: $white;
+      }
+      &:before {
+        content: "";
+        @include size(40%, 100%);
+        position: absolute;
+        left: -20%;
+        animation: body-loaderA 1.5s linear infinite;
+        background-image: linear-gradient(95deg, transparent, $primary-color, transparent);
+      }
+    }
+  }
+
+  &.-success {
+    border-color: $brand-success;
+    background-color: $brand-success;
+    .text {
+      position: relative;
+      color: $white;
+    }
+    .svg-icon {
+      position: relative;
+      stroke: $white;
+    }
+    &:hover {
+      border-color: lighten($brand-success, 10%);
+      background-color: lighten($brand-success, 10%);
+      .text {
+        color: $white;
+      }
+      .svg-icon {
+        stroke: $white;
+      }
+    }
+    &:active {
+      border-color: darken($brand-success, 5%);
+      background-color: darken($brand-success, 5%);
+    }
+    &.-loading {
+      overflow: hidden;
+      position: relative;
+      background-color: lighten($brand-success, 3%);
+      .text {
+        color: $white;
+      }
+      .svg-icon {
+        stroke: $white;
+      }
+      &:before {
+        content: "";
+        @include size(40%, 100%);
+        position: absolute;
+        left: -20%;
+        animation: body-loaderA 1.5s linear infinite;
+        background-image: linear-gradient(95deg, transparent, darken($brand-success, 5%), transparent);
+      }
+    }
+  }
+
+  // botão danger
+  &.-danger {
+    border-color: $brand-danger;
+    background-color: $brand-danger;
+    &:hover {
+      border-color: lighten($brand-danger, 10%);
+      background-color: lighten($brand-danger, 10%);
+      .text {
+        color: $white;
+      }
+      .svg-icon {
+        stroke: $white;
+      }
+    }
+    &:active {
+      border-color: darken($brand-danger, 5%);
+      background-color: darken($brand-danger, 5%);
+    }
+  }
+
+  &.-disabled {
+    background-color: $variant-color-3;
+    border-color: $variant-color-3;
+    cursor: default;
+    pointer-events: none;
+    .text {
+      color: $variant-color-1;
+    }
+  }
+
+  // Caso tenha mais de um botão
+  + .main-button {
+    margin-left: 10px;
+  }
+}

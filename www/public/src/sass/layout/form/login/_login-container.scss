@@ -1,0 +1,64 @@
+.login-container {
+  .login-header {
+    border-bottom: 1px solid $variant-color-1;
+    .login-icon-animation {
+      @include size(100px);
+      @include radius(100px);
+      @include centerFlex;
+      align-items: flex-end;
+      overflow: hidden;
+      border: 2px solid $secondary-color;
+      margin: 25px auto 0;
+      .svg-icon {
+        @include size(85px);
+        margin-bottom: -2px;
+      }
+    }
+    .login-intro {
+      @include size(auto);
+      text-align: center;
+      padding-top: 10px;
+      .title {
+        font-size: 34px;
+      }
+      &.-register {
+        @include centerFlex-y;
+        padding-top: 20px;
+        text-align: start;
+        .return-icon {
+          @include size(30px);
+          @include centerFlex;
+          cursor: pointer;
+          .svg-icon {
+            @include centerFlex;
+            @include size(20px);
+            @include transition;
+            stroke: $secondary-color;
+          }
+          &:hover {
+            .svg-icon {
+              stroke: $primary-color;
+            }
+          }
+          + .title {
+            margin-left: 20px;
+          }
+        }
+      }
+    }
+    padding-bottom: 20px;
+  }
+  .login-form {
+    padding: 20px 30px 0;
+  }
+  .login-footer {
+    padding: 0px 30px 0;
+    display: flex;
+    flex-direction: column;
+    .submit-box {
+      margin-top: 10px;
+      display: flex;
+      // justify-content: space-between;
+    }
+  }
+}

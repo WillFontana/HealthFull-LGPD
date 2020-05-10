@@ -1,0 +1,73 @@
+.warning-box {
+  @include size(100%, auto);
+  @include transition;
+  padding: 15px 15px 18px;
+  display: flex;
+  background-color: $white;
+  position: fixed;
+  top: 0;
+  margin-bottom: 25px;
+  overflow: hidden;
+  border-top: $primary-color;
+  z-index: 17;
+  &::before {
+    content: "";
+    height: 3px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: rgba($primary-color, 0.4);
+    animation: loading-warning 6s linear infinite;
+  }
+  .svg-icon {
+    @include size(20px);
+    stroke: $primary-color;
+    cursor: pointer;
+    +.text {
+      margin-left: 10px;
+      margin-top: 2px;
+    }
+  }
+  &.-error {
+    .text, .svg-icon {
+      color: $brand-danger;
+      stroke: $brand-danger;
+    }
+    &::before {
+      background-color: rgba($brand-danger, 0.4);
+    }
+  }
+  &.-success {
+    .text, .svg-icon {
+      color: $brand-success;
+      stroke: $brand-success;
+    }
+    &::before {
+      background-color: rgba($brand-success, 0.4);
+    }
+  }
+  &.-warning {
+    .text, .svg-icon {
+      color: darken($brand-warning, 5%);
+      stroke: $brand-warning;
+    }
+    &::before {
+      background-color: rgba($brand-warning, 0.4);
+    }
+  }
+  &.-info {
+    .text, .svg-icon {
+      color: darken($brand-info, 5%);
+      stroke: darken($brand-info, 5%);
+    }
+    &::before {
+      background-color: rgba($brand-info, 0.4);
+    }
+  }
+  &.-fading {
+    top: -100%;
+  }
+  &.-gone {
+    display: none;
+  }
+}

@@ -1,0 +1,9 @@
+.image-fluid {
+  width: 100%;
+	display: block;
+
+	> img {
+		max-width: 100%;
+		@include center-block;
+  }
+}

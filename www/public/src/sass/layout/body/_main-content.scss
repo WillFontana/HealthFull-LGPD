@@ -1,0 +1,13 @@
+body {
+  @include customscrollbar;
+  background-color: $body-bg;
+  -webkit-font-smoothing: antialiased;
+  &.-overlayed {
+    height: 100%;
+    overflow: hidden;
+  }
+  a,
+  button {
+    outline: none !important;
+  }
+}

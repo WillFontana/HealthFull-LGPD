@@ -1,0 +1,134 @@
+.text-box {
+  @include size(100%, 40px);
+  position: relative;
+  .input {
+    @include size(100%, 40px);
+    @include radius(3px);
+    outline: none;
+    background: transparent;
+    z-index: 2;
+    border: 0px;
+    border-bottom: 1px solid $secondary-color;
+    border-left: 1px solid transparent;
+    width: 100%;
+    padding: 5px 0 0px 0;
+    padding-left: 10px;
+    font-size: 16px;
+    color: $variant-color-2;
+    font-family: $font-face;
+    &:focus,
+    &.-used,
+    &.-error,
+    &.-validated {
+      + .label {
+        top: 0px;
+        bottom: calc(100% + 4px);
+        &::before {
+          height: 7px;
+        }
+        @include media-max(md) {
+        }
+        .text {
+          font-size: 11px;
+          z-index: 1;
+        }
+      }
+    }
+
+    &:focus {
+      border-color: $primary-color-lighten;
+    }
+    &.-used{
+      border-color: $primary-color-darken;
+      &.-verified {
+        border-color: $brand-success;
+      }
+    }
+    &.-error {
+      border-color: $brand-danger;
+    }
+    &.-iconed {
+      padding-right: 40px;
+    }
+    &.-verified {
+      border-color: $brand-success;
+    }
+  }
+
+  .label {
+    @include centerY;
+    @include transition;
+    left: 10px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    .text {
+      @include transition;
+      font-size: 14px;
+      z-index: 1;
+      user-select: none;
+    }
+  }
+  .icon-box {
+    @include size(40px, 38px);
+    @include centerY;
+    @include centerFlex;
+    right: 0;
+    bottom: 2px;
+    cursor: pointer;
+    user-select: none;
+    &.-validate {
+      stroke: $brand-success;
+      opacity: 0;
+    }
+    &.-show {
+      .svg-icon {
+        &.-eye {
+          &.unallow {
+            opacity: 1;
+          }
+          &.allow {
+            opacity: 0;
+          }
+        }
+      }
+    }
+    .svg-icon {
+      &.-eye {
+        &.unallow {
+          opacity: 0;
+        }
+      }
+    }
+    .svg-icon {
+      @include size(20px);
+      @include transition;
+      @include absolute-all;
+      stroke: $primary-color;
+    }
+  }
+  + .text-box,
+  + .double-inputs {
+    margin-top: 20px;
+  }
+  &.-smaller {
+    width: 25%;
+  }
+}
+
+.double-inputs {
+  @include size(100%, auto);
+  @include centerFlex;
+  .text-box {
+    +.text-box {
+      margin-top: 0px;
+      margin-left: 20px;
+    }
+  }
+  +.text-box {
+    margin-top: 20px;
+
+  }
+}

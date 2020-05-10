@@ -1,0 +1,45 @@
+.brand-fix {
+    width: 34px;
+    height: 34px;;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    transition: all 0.2s ease-in-out;
+    background-color: #fff;
+    .icon-logo {
+      z-index: 1;
+      position: absolute;
+      bottom: 0px;
+      left: -82px;
+      transition: all 0.1s ease-in-out;
+      opacity: 0;
+      svg {
+        height: 24px;
+      }
+    }
+    .icon-logo-smll {
+      z-index: 1;
+      position: absolute;
+      left: 5px;
+      bottom: 0px;
+      display: block;
+      opacity: 1;
+      transition: all 0.1s ease-in-out;
+  
+      svg {
+        @include size (24px);
+      }
+    }
+    &:hover{
+      width: 135px;
+      .icon-logo-smll {
+      opacity: 0;
+      }
+      .icon-logo {
+        opacity: 1;
+  
+      }
+    }
+  }
+  

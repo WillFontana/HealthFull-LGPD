@@ -1,0 +1,249 @@
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(
+          #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+            ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+        );
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+@mixin font($family, $size, $resp-size, $weight) {
+  font-family: $family;
+  font-weight: $weight;
+  @include fluid-type(map-get($breakpoints, md), map-get($breakpoints, xl), $resp-size, $size);
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin media-min($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+@mixin media-max($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @media (max-width: ($breakpoint-value - 1)) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+@mixin transition($transition...) {
+  @if length($transition) == 0 {
+    transition: $transition-base;
+  } @else {
+    transition: $transition;
+  }
+}
+
+@mixin radius($radius...) {
+  @if $enable-rounded {
+    @if length($radius) == 0 {
+      border-radius: $border-radius-base;
+    } @else {
+      border-radius: $radius;
+    }
+  }
+}
+
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin reset-list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+
+  > li {
+    list-style: none;
+  }
+}
+
+@mixin icon {
+  > svg {
+    @include size(100%);
+    @include center-block;
+  }
+}
+
+@mixin text-truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin absolute-all {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+@mixin centerX {
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+
+@mixin centerY {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+@mixin positionClear {
+  top: unset;
+  bottom: unset;
+  right: unset;
+  left: unset;
+}
+
+@mixin centerFlex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin centerFlex-x {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin centerFlex-y {
+  display: flex;
+  align-items: center;
+}
+
+@mixin overlay {
+  background-color: #0000009a;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  @include size(100%);
+  z-index: 999999;
+}
+
+@mixin dotdot($left, $right, $bottom, $bg, $color) {
+  position: relative;
+  &.-doted {
+    &::after {
+      content: "...";
+      padding: 0px 5px;
+      position: absolute;
+      left: $left;
+      right: $right;
+      color: $color;
+      bottom: $bottom;
+      background-color: $bg;
+    }
+  }
+}
+
+@mixin customscrollbar {
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 18px;
+    background-color: $scrollbar-background;
+  }
+  &::-webkit-scrollbar-thumb {
+    height: 6px;
+    background-clip: padding-box;
+    border-radius: 20px;
+    background-color: $scrollbar-color;
+    -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+    box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+  }
+  &::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+}
+
+@mixin customscrollbarInvisible {
+  @include transition;
+  &::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    height: 6px;
+    background-clip: padding-box;
+    border-radius: 20px;
+    background-color: transparent;
+    box-shadow: inset -1px -1px 0px transparent, inset 1px 1px 0px transparent;
+    -webkit-box-shadow: inset -1px -1px 0px transparent, inset 1px 1px 0px transparent;
+  }
+  &::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+}

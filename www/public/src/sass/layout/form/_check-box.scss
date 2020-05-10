@@ -1,0 +1,75 @@
+.check-field {
+  @include size(auto, 40px);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  .input-check {
+    display: none;
+    &:checked {
+      + .switch-check {
+        .svg-icon {
+          stroke: $primary-color;
+          &.-check {
+            opacity: 1;
+          }
+          &.-uncheck {
+            opacity: 0;
+          }
+        }
+        + .text {
+          color: $primary-color;
+        }
+      }
+    }
+    &:disabled {
+      + .switch-check {
+        .svg-icon {
+          stroke: lighten($secondary-color, 20%);
+        }
+        + .text {
+          color: lighten($secondary-color, 20%);
+        }
+      }
+    }
+  }
+  .switch-check {
+    @include size(20px, 40px);
+    position: relative;
+    .svg-icon {
+      @include transition;
+      @include size(20px);
+      @include absolute-all;
+      right: unset;
+      stroke: $secondary-color;
+      &.-check {
+        opacity: 0;
+      }
+    }
+    + .text {
+      margin-left: 10px;
+      margin-top: 2px;
+    }
+  }
+  .text {
+    @include transition;
+    user-select: none;
+    color: $secondary-color;
+  }
+  + .check-field {
+    margin-left: 10px;
+  }
+  &.-invert {
+    flex-direction: row-reverse;
+    .switch-check {
+      +.text {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.check-terms {
+  @include size(auto);
+  @include centerFlex-y;
+  // justify-content: space-between;
+}

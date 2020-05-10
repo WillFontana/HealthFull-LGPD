@@ -1,0 +1,17 @@
+@each $class, $obj in $typo-variants {
+  .typo-#{$class} {
+    @include font(map-get($obj, 'font'), map-get($obj, 'size'), map-get($obj, 'size-resp'), map-get($obj, 'weight'));
+  }
+}
+
+@each $class, $color in $typo-colors {
+  .typo-color-#{$class} {
+    color: $color;
+  }
+}
+
+@each $class, $weight in $typo-weights {
+  .typo-fw-#{$class} {
+    font-weight: $weight;
+  }
+}

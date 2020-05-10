@@ -1,0 +1,16 @@
+html {
+  font-family: sans-serif;
+  font-size: $font-size-root;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: $body-bg;
+	word-wrap: break-word;
+  font-family: $font-base;
+  font-size: $body-font-size;
+  overflow-x: hidden;
+}

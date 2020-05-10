@@ -1,0 +1,16 @@
+.svg-icon {
+  @include icon();
+  display: inline-block;
+
+  @each $class, $value in $icons-sizes {
+    &.-#{$class} {
+      @include size($value);
+    }
+  }
+
+  @each $class, $value in $icons-fills {
+    &.-#{$class} > svg {
+      stroke: $value;
+    }
+  }
+}

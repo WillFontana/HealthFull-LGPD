@@ -1,0 +1,8 @@
+.common-modal {
+  @include size(80%, 450px);
+  @include radius;
+  @include transition;
+  @include absolute-all;
+  background-color: $white;
+  box-shadow: 0px 6px 15px 1px rgba($variant-color-1, 0.6);
+}

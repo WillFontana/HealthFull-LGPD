@@ -1,0 +1,65 @@
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;500;600;700;800&display=swap');
+// settings
+@import "./settings/variables";
+
+// tools
+@import "./tools/functions";
+@import "./tools/mixins";
+
+// global
+@import "./global/resets";
+@import "./global/scaffolding";
+
+// components
+@import "./components/container-block";
+@import "./components/content-all";
+@import "./components/divider-line";
+@import "./components/dotdot";
+@import "./components/grid";
+@import "./components/icon-sprite";
+@import "./components/image-fluid";
+@import "./components/svg-icon";
+@import "./components/typography";
+
+// helpers
+@import "./helpers/utilities";
+@import "./helpers/spacing";
+@import "./helpers/flexbox";
+@import "./helpers/trumps";
+
+//// Layout
+// animations
+@import "./layout/animations/keyframes";
+
+// body
+@import "./layout/body/main-content";
+
+// buttons
+@import "./layout/buttons/main-button";
+
+// footer
+@import "./layout/footer/brand-fix";
+@import "./layout/footer/footer";
+
+// form
+@import "./layout/form/check-box";
+@import "./layout/form/text-field";
+  // Login
+  @import "./layout/form/login/login-container";
+
+
+// header
+@import "./layout/header/header";
+@import "./layout/header/menu-burguer";
+@import "./layout/header/menu-mobile";
+@import "./layout/header/mobile-overlay";
+@import "./layout/header/nav";
+
+// modais
+@import "./layout/modais/main-modal";
+@import "./layout/modais/common-modal";
+
+// warnigbox
+@import "./layout/warningbox/warning-box";

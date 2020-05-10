@@ -1,0 +1,7 @@
+.content-all {
+  width: $content-all-width + ($content-all-pad-x * 2);
+  max-width: 100%;
+  padding-right: $content-all-pad-x;
+  padding-left: $content-all-pad-x;
+  @include center-block;
+}

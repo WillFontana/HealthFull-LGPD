@@ -1,0 +1,33 @@
+%margin-zero {
+  margin: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+ul {
+  @include reset-list;
+}
+
+p, figure, hr {
+  @extend %margin-zero;
+}
+
+a {
+  text-decoration: none;
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    @extend %margin-zero;
+  }
+}
+
+input, button, textarea {
+  font: 400 14px $font-base, sans-serif;
+}
+
+button {
+  cursor: pointer;
+}

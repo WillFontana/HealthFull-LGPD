@@ -1,0 +1,4 @@
+.main-header {
+  @include size(100%, auto);
+  background-color: $primary-color;
+}
