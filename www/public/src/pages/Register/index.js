@@ -13,6 +13,19 @@ export default function Register() {
 
   async function handleRegister(e) {
     e.preventDefault();
+    if (name === '') {
+      alert('Insira um nome de usuario');
+      return false;
+    } else if (email === '') {
+      alert('Insira um email válido ');
+      return false;
+    } else if (password === '') {
+      alert('Insira um email válido ');
+      return false;
+    } else if (passwordConfirm === '') {
+      alert('Voce precisa confirmar sua senha');
+      return false;
+    }
     const data = {
       name,
       email,
@@ -57,9 +70,11 @@ export default function Register() {
       if (passwordConfirm !== password) {
         document.getElementById('txUserConfirmPassword').classList.add('-error');
         document.getElementById('txUserConfirmPassword').classList.remove('-verified');
+        document.getElementById('register-button').classList.add('-disabled')
       } else {
         document.getElementById('txUserConfirmPassword').classList.remove('-error')
         document.getElementById('txUserConfirmPassword').classList.add('-verified')
+        document.getElementById('register-button').classList.remove('-disabled')
       }
     }
   }
@@ -162,7 +177,7 @@ export default function Register() {
                   Termos de uso
             </div>
               </div>
-              <button className="main-button" type="submit" id="login-button">
+              <button className="main-button" type="submit" id="register-button">
                 <div className="text">
                   Realizar cadastro
             </div>
