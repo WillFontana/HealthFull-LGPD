@@ -19,7 +19,8 @@ module.exports = {
         .orWhere('email', usuario)
         .select('id').first();
 
-      const token = jwt.sign({id: userId }, 'secret-key', {
+
+      const token = jwt.sign({ id: userId }, 'secret-key', {
         expiresIn: '1m'
       });
 
