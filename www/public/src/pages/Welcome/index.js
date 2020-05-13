@@ -1,15 +1,13 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 
 export default function Welcome() {
-  const history = useHistory();
-  function pushToLogin() {
-    history.push('/home');
-  }
-  pushToLogin()
+
   return (
     <>
-      bem vindo
+      <h2 className="Welcome-text">
+        Seja Bem vindo!
+      </h2>
     </>
   );
 }

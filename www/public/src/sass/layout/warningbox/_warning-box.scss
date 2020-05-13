@@ -23,13 +23,14 @@
     @include size(20px);
     stroke: $primary-color;
     cursor: pointer;
-    +.text {
+    + .text {
       margin-left: 10px;
       margin-top: 2px;
     }
   }
   &.-error {
-    .text, .svg-icon {
+    .text,
+    .svg-icon {
       color: $brand-danger;
       stroke: $brand-danger;
     }
@@ -38,7 +39,8 @@
     }
   }
   &.-success {
-    .text, .svg-icon {
+    .text,
+    .svg-icon {
       color: $brand-success;
       stroke: $brand-success;
     }
@@ -47,7 +49,8 @@
     }
   }
   &.-warning {
-    .text, .svg-icon {
+    .text,
+    .svg-icon {
       color: darken($brand-warning, 5%);
       stroke: $brand-warning;
     }
@@ -56,7 +59,8 @@
     }
   }
   &.-info {
-    .text, .svg-icon {
+    .text,
+    .svg-icon {
       color: darken($brand-info, 5%);
       stroke: darken($brand-info, 5%);
     }
@@ -66,6 +70,7 @@
   }
   &.-fading {
     top: -100%;
+    animation: none;
   }
   &.-gone {
     display: none;

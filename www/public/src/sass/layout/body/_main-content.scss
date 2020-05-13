@@ -11,3 +11,10 @@ body {
     outline: none !important;
   }
 }
+
+.main-bgs {
+  @include size(100vw, auto);
+  min-height: 100vh;
+  background-position: bottom;
+  background-size: cover;
+}

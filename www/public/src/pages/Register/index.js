@@ -3,6 +3,9 @@ import { FiEye, FiEyeOff, FiArrowLeft, FiSquare, FiCheckSquare } from 'react-ico
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api';
 
+import waveBG from '../../assets/bgs/wave.svg';
+
+
 export default function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -79,119 +82,125 @@ export default function Register() {
     }
   }
 
+  const bgStyle = {
+    backgroundImage: `url(${waveBG})`
+  };
+
   return (
     <>
-      <div className="content-all">
-        <form className="login-container" onSubmit={handleRegister}>
-          <div className="login-header">
-            <div className="login-intro -register">
-              <Link className="return-icon" to="/">
-                <FiArrowLeft className="svg-icon" />
-              </Link>
-              <h2 className="title typo-color-dark-secondary typo-fw-regular">
-                Cadastro
+      <div className="main-bgs" style={bgStyle}>
+        <aside className="common-modal -bigger">
+          <form className="login-container" onSubmit={handleRegister}>
+            <div className="login-header _pl-md">
+              <div className="login-intro -register">
+                <Link className="return-icon" to="/">
+                  <FiArrowLeft className="svg-icon" />
+                </Link>
+                <h2 className="title typo-color-dark-secondary typo-fw-regular">
+                  Cadastro
               </h2>
-            </div>
-          </div>
-          <div className="login-form">
-            <div className="text-box">
-              <input type="text" value={name}
-                onChange={e => setName(e.target.value)}
-                onKeyUp={applyUsed}
-                className="input" name="txUserName" id="txUserName" />
-              <label htmlFor="txUserName" className="label">
-                <span className="text">
-                  Nome completo
-              </span>
-              </label>
-            </div>
-            <div className="text-box">
-              <input type="email" value={email}
-                onChange={e => setEmail(e.target.value)}
-                onKeyUp={applyUsed}
-                className="input" name="txUserEmail" id="txUserEmail" />
-              <label htmlFor="txUserEmail" className="label">
-                <span className="text">
-                  Email
-              </span>
-              </label>
-            </div>
-            <div className="text-box">
-              <input type="password" value={password}
-                onChange={e => setPassword(e.target.value)}
-                onKeyUp={applyUsed}
-                className="input -iconed" name="txUserPassword" id="txUserPassword" />
-              <label htmlFor="txUserPassword" className="label">
-                <div className="text">
-                  Senha do usário
-            </div>
-              </label>
-              <div className="icon-box" onClick={e => { toggleAllowSeePassword('allowSeePassowrdToggler', 'txUserPassword') }} id="allowSeePassowrdToggler">
-                <i className="svg-icon -eye allow">
-                  <FiEye></FiEye>
-                </i>
-                <i className="svg-icon -eye unallow">
-                  <FiEyeOff></FiEyeOff>
-                </i>
               </div>
             </div>
-            <div className="text-box">
-              <input type="password" value={passwordConfirm}
-                onChange={e => setPasswordConfirm(e.target.value)}
-                onKeyUp={checkPasswords}
-                className="input -iconed" name="txUserConfirmPassword" id="txUserConfirmPassword" />
-              <label htmlFor="txUserConfirmPassword" className="label">
-                <div className="text">
-                  Confirmar senha
+            <div className="login-form">
+              <div className="text-box">
+                <input type="text" value={name}
+                  onChange={e => setName(e.target.value)}
+                  onKeyUp={applyUsed}
+                  className="input" name="txUserName" id="txUserName" />
+                <label htmlFor="txUserName" className="label">
+                  <span className="text">
+                    Nome completo
+              </span>
+                </label>
+              </div>
+              <div className="text-box">
+                <input type="email" value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  onKeyUp={applyUsed}
+                  className="input" name="txUserEmail" id="txUserEmail" />
+                <label htmlFor="txUserEmail" className="label">
+                  <span className="text">
+                    Email
+              </span>
+                </label>
+              </div>
+              <div className="text-box">
+                <input type="password" value={password}
+                  onChange={e => setPassword(e.target.value)}
+                  onKeyUp={applyUsed}
+                  className="input -iconed" name="txUserPassword" id="txUserPassword" />
+                <label htmlFor="txUserPassword" className="label">
+                  <div className="text">
+                    Senha do usário
             </div>
-              </label>
-              <div className="icon-box" onClick={e => { toggleAllowSeePassword('allowSeeConfirmPassowrdToggler', 'txUserConfirmPassword') }}
-                id="allowSeeConfirmPassowrdToggler">
-                <i className="svg-icon -eye allow">
-                  <FiEye></FiEye>
-                </i>
-                <i className="svg-icon -eye -off unallow">
-                  <FiEyeOff></FiEyeOff>
-                </i>
+                </label>
+                <div className="icon-box" onClick={e => { toggleAllowSeePassword('allowSeePassowrdToggler', 'txUserPassword') }} id="allowSeePassowrdToggler">
+                  <i className="svg-icon -eye allow">
+                    <FiEye></FiEye>
+                  </i>
+                  <i className="svg-icon -eye unallow">
+                    <FiEyeOff></FiEyeOff>
+                  </i>
+                </div>
+              </div>
+              <div className="text-box">
+                <input type="password" value={passwordConfirm}
+                  onChange={e => setPasswordConfirm(e.target.value)}
+                  onKeyUp={checkPasswords}
+                  className="input -iconed" name="txUserConfirmPassword" id="txUserConfirmPassword" />
+                <label htmlFor="txUserConfirmPassword" className="label">
+                  <div className="text">
+                    Confirmar senha
+            </div>
+                </label>
+                <div className="icon-box" onClick={e => { toggleAllowSeePassword('allowSeeConfirmPassowrdToggler', 'txUserConfirmPassword') }}
+                  id="allowSeeConfirmPassowrdToggler">
+                  <i className="svg-icon -eye allow">
+                    <FiEye></FiEye>
+                  </i>
+                  <i className="svg-icon -eye -off unallow">
+                    <FiEyeOff></FiEyeOff>
+                  </i>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="login-footer">
-            <div className="check-terms">
-              <label htmlFor="flAcceptTerms" className="check-field ">
-                <input type="checkbox" disabled className="input-check" name="flAcceptTerms" value="N" id="flAcceptTerms" />
-                <div className="switch-check">
+            <div className="login-footer">
+              <div className="check-terms">
+                <label htmlFor="flAcceptTerms" className="check-field ">
+                  <input type="checkbox" disabled className="input-check" name="flAcceptTerms" value="N" id="flAcceptTerms" />
                   <div className="switch-check">
-                    <FiSquare className="svg-icon -uncheck" />
-                    <FiCheckSquare className="svg-icon -check" />
+                    <div className="switch-check">
+                      <FiSquare className="svg-icon -uncheck" />
+                      <FiCheckSquare className="svg-icon -check" />
+                    </div>
+                  </div>
+                  <p className="text typo-body-1 typo-fw-regular">
+                    Li e aceito os termos de uso
+                </p>
+                </label>
+              </div>
+              <div className="submit-box _jc-between">
+                <div className="main-button" id="terms">
+                  <div className="text">
+                    Termos de uso
                   </div>
                 </div>
-                <p className="text typo-body-1 typo-fw-regular">
-                  Li e aceito os termos de uso
-                </p>
-              </label>
-            </div>
-            <div className="submit-box _jc-between">
-              <div className="main-button" id="terms">
-                <div className="text">
-                  Termos de uso
-            </div>
+                <button className="main-button" type="submit" id="register-button">
+                  <div className="text">
+                    Registrar
+                  </div>
+                </button>
               </div>
-              <button className="main-button" type="submit" id="register-button">
-                <div className="text">
-                  Realizar cadastro
-            </div>
-              </button>
-            </div>
-            <div className="redirect-link">
-              <Link to="/">
-                <div className="text _pt-md typo-color-primary typo-body-2">
-                  Já possuo um cadastro
+              <div className="redirect-link">
+                <Link to="/login">
+                  <div className="text _pt-md typo-color-primary typo-body-2">
+                    Já possuo uma conta
                 </div>
-              </Link>
+                </Link>
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </aside>
       </div>
     </>
   )

@@ -9,6 +9,7 @@
   cursor: pointer;
   user-select: none;
   outline: none;
+  background-color: $white;
   // texto do botão
   .text {
     @include transition;

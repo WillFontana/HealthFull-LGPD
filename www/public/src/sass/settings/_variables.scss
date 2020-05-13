@@ -25,6 +25,10 @@ $primary-color-darken:     		darken($primary-color, 10%) !default;
 $primary-color-lighten:     	lighten($primary-color, 10%) !default;
 $primary-color-contrast:      $white !default;
 
+$contrast-color:              #17b890ff !default;
+$contrast-color-darken:     	darken($contrast-color, 10%) !default;
+$contrast-color-lighten:     	lighten($contrast-color, 10%) !default;
+
 $secondary-color:					    #A7A2A9 !default;
 $secondary-color-darken:     	darken($secondary-color, 10%) !default;
 $secondary-color-lighten:     lighten($secondary-color, 10%) !default;
