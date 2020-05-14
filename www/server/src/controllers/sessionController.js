@@ -19,14 +19,14 @@ module.exports = {
         .orWhere('email', usuario)
         .select('id').first();
 
-
       const token = jwt.sign({ id: userId }, 'secret-key', {
         expiresIn: '1m'
       });
 
-      const user = await connection('users').where('id', userId).select('name').first();
+      const user = await connection('users').where('name', usuario).select({ name: 'name', email: 'email' }).first();
 
-      return response.json({ usuario: user, token });
+
+      return response.json({ user, token });
     } catch (error) {
       console.log(error);
       return response.status(404).json({ message: error });

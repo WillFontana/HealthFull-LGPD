@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { FiEye, FiEyeOff, FiSquare, FiCheckSquare } from 'react-icons/fi';
+import {
+  FiInfo, FiAlertCircle, FiXCircle,
+  FiEye, FiEyeOff, FiSquare, FiCheckSquare
+} from 'react-icons/fi';
 
 import waveBG from '../../assets/bgs/wave.svg';
-
 
 import { Link, useHistory } from 'react-router-dom';
 
@@ -10,24 +12,45 @@ import api from '../../services/api';
 
 export default function Login() {
 
+
   const [usuario, setUser] = useState('');
   const [password, setPassword] = useState('');
+  const [keepLoged, setKeepLoged] = useState(false);
+
+  // Mensagens
+  const [messageTitle, setMessageTitle] = useState('Titulo Mensagem');
+  const [messageBody, setMessageBody] = useState('Texto mensagem');
+  const [messageIcon, setMessageIcon] = useState(FiInfo);
+  const [messageState, setMessageState] = useState('info');
+  const [messageAnimation, setMessageAnimation] = useState('fading');
 
   const history = useHistory();
 
+  function createWarning(Icon, Title, Body, State) {
+    setMessageIcon(Icon);
+    setMessageTitle(Title);
+    setMessageBody(Body);
+    setMessageState(State);
+    setMessageAnimation('show');
+    setTimeout(() => {
+      setMessageAnimation('fading');
+    }, 6000);
+  }
+
   async function HandlerLogin(e) {
+
     e.preventDefault();
     if (usuario === '') {
-      alert('Insira um nome de usuario');
-      // let warning = {
-      //   situation: '-error',
-      //   title: 'Nome de usuário vazio',
-      //   message: 'É necessário informar um nome de usuário',
-      // }
-      // callWarning(warning.situation, warning.title, warning.message)
+      createWarning(FiAlertCircle,
+        'Campo Vazio',
+        'É necessário inserir um nome de usuário',
+        'error');
       return false;
     } else if (password === '') {
-      alert('Insira um email válido ');
+      createWarning(FiAlertCircle,
+        'Campo Vazio',
+        'É necessário inserir sua senha',
+        'error');
       return false;
     }
     const data = {
@@ -36,12 +59,17 @@ export default function Login() {
     }
     try {
       const response = await api.post('login', data);
-      alert(`Seu token de acesso: ${response.data.token}`);
-      history.push('/welcome');
+      const { token, user } = response.data;
+      if (keepLoged) {
+        localStorage.setItem('@app:token', token);
+        localStorage.setItem('@app:user', JSON.stringify(user));
+      }
+      history.push('/');
     } catch (error) {
-      console.log(error);
-      alert('Ocorreu um erro ao realizar seu Login');
-
+      createWarning(FiXCircle,
+        'Ops!',
+        'Não foi possível realizar o login',
+        'error');
     }
   }
 
@@ -54,25 +82,6 @@ export default function Login() {
       document.getElementById(input).classList.remove("-used");
     }
   };
-
-  // function callWarning(situation, title, message) {
-  //   document.getElementById('main-body').appendChild(`
-  //   <aside class="warning-box ${situation}" id="current-warning">
-  //     <p class="text typo-body-2 typo-fw-regular">
-  //      <span class="typo-sub-heading typo-fw-bold _pr-sm">
-  //        ${title}
-  //      </span>
-  //       ${message}
-  //     </p>
-  //   </aside>
-  //   `);
-  //   document.getElementById('#warning-box').classList.remove('-fading');
-  //   setTimeout(() => {
-  //     document.getElementById('#current-warning').classList.add('-fading');
-  //   }, 6000);
-
-  // }
-
 
   function toggleAllowSeePassword(idButton, idInput) {
     let passwordInput = document.getElementById(idInput);
@@ -87,6 +96,14 @@ export default function Login() {
 
   }
 
+  function toggleCheck() {
+    if (keepLoged) {
+      setKeepLoged(false);
+    } else {
+      setKeepLoged(true);
+    }
+  }
+
   const bgStyle = {
     backgroundImage: `url(${waveBG})`
   };
@@ -94,6 +111,18 @@ export default function Login() {
   return (
     <>
       <div id="main-body">
+        <aside className={`warning-box -${messageState} -${messageAnimation}`} id="current-warning">
+          <i className="svg-icon">
+            {messageIcon}
+          </i>
+          <p className="text typo-body-2 typo-fw-regular">
+            <span className="typo-sub-heading typo-fw-bold _pr-sm">
+              {messageTitle}
+            </span>
+            {messageBody}
+          </p>
+        </aside>
+
         <div className="main-bgs" style={bgStyle}>
           <aside className="common-modal">
             <form className="login-container" onSubmit={HandlerLogin}>
@@ -116,7 +145,7 @@ export default function Login() {
                   <label htmlFor="txUserName" className="label">
                     <span className="text">
                       Nome completo
-              </span>
+                    </span>
                   </label>
                 </div>
                 <div className="text-box">
@@ -127,7 +156,7 @@ export default function Login() {
                   <label htmlFor="txUserPassword" className="label">
                     <div className="text">
                       Senha do usário
-            </div>
+                  </div>
                   </label>
                   <div className="icon-box" onClick={e => { toggleAllowSeePassword('allowSeePassowrdToggler', 'txUserPassword') }} id="allowSeePassowrdToggler">
                     <i className="svg-icon -eye allow">
@@ -142,7 +171,7 @@ export default function Login() {
               <div className="login-footer">
                 <div className="check-terms _jc-end">
                   <label htmlFor="flKeepLoged" className="check-field">
-                    <input type="checkbox" className="input-check" name="flKeepLoged" value="S" id="flKeepLoged" />
+                    <input type="checkbox" className="input-check" onChange={toggleCheck} name="flKeepLoged" value="N" id="flKeepLoged" />
                     <div className="switch-check">
                       <FiSquare className="svg-icon -uncheck" />
                       <FiCheckSquare className="svg-icon -check" />

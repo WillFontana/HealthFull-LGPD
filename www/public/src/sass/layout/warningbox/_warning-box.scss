@@ -70,7 +70,9 @@
   }
   &.-fading {
     top: -100%;
-    animation: none;
+    &::before {
+      animation: none;
+    }
   }
   &.-gone {
     display: none;
