@@ -122,7 +122,6 @@ export default function Login() {
             {messageBody}
           </p>
         </aside>
-
         <div className="main-bgs" style={bgStyle}>
           <aside className="common-modal">
             <form className="login-container" onSubmit={HandlerLogin}>
@@ -185,14 +184,14 @@ export default function Login() {
                   <button className="main-button" type="submit" id="login-button">
                     <div className="text">
                       Fazer login
-            </div>
+                    </div>
                   </button>
                 </div>
                 <div className="redirect-link">
                   <Link to="/register">
                     <div className="text _pt-md typo-color-primary typo-body-2">
                       Ainda não possuo uma conta
-                </div>
+                    </div>
                   </Link>
                 </div>
               </div>

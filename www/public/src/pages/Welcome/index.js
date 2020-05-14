@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function Welcome() {
-  const [authed, setAuthed] = useState(() => {
+  const authed = useState(() => {
     const user = localStorage.getItem('@app:user');
     const token = localStorage.getItem('@app:user');
     if (user && token) {
