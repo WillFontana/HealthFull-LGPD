@@ -64,7 +64,7 @@ export default function Login() {
         localStorage.setItem('@app:token', token);
         localStorage.setItem('@app:user', JSON.stringify(user));
       }
-      history.push('/');
+      history.push('/home');
     } catch (error) {
       createWarning(FiXCircle,
         'Ops!',

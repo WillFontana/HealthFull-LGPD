@@ -1,0 +1,12 @@
+.welcome-block {
+  @include size(50%, auto);
+  @include radius;
+  @include centerFlex;
+  // background-color: $white;
+  padding-top: 5px;
+  // box-shadow: 0px 0px 15px 1px rgba($secondary-color, 0.6);
+  @include media-max(lg) {
+    @include size(80%, auto);
+    margin: 20px auto;
+  }
+}

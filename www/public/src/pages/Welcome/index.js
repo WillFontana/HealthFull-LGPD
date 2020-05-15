@@ -1,32 +1,41 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Parallax from 'react-springy-parallax'
+// import { Link } from 'react-router-dom';
 
 export default function Welcome() {
   const authed = useState(() => {
     const user = localStorage.getItem('@app:user');
-    const token = localStorage.getItem('@app:user');
+    const token = localStorage.getItem('@app:token');
     if (user && token) {
       return true;
+    } else {
+      return false;
     }
-    return false;
   });
 
 
 
   return (
     <>
-      {authed
+      {authed[0]
         ? <span>Usuario autenticado</span>
-        : <span>Usuario não autenticado</span>
+        : <>
+
+        </>
       }
-      <h2 className="Welcome-text">
-        Seja Bem vindo!
-      </h2>
-      <Link to="/login">
-        <div className="text _pt-md typo-color-primary typo-body-2">
-          Entrar
-                </div>
-      </Link>
+      <Parallax useRef='parallax' pages={3}>
+        <Parallax.Layer
+          offset={0}
+          speed={0.5}>
+          <div className="welcome-block">
+            <h1 className="typo-display-2 typo-color-dark-primary typo-fw-bold">
+              Seja bem vindo a HealthFull-LGPD
+            </h1>
+            Icons made by <a href="https://www.flaticon.com/authors/wichaiwi" title="Wichai.wi">Wichai.wi</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+          </div>
+        </Parallax.Layer>
+      </Parallax>
+
     </>
   );
 }
