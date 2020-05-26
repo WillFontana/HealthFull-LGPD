@@ -12,5 +12,20 @@
       top: 0px;
     }
   }
-  
+}
+
+.menu-overlay {
+  @include size(auto);
+  @include centerX;
+  @include transition(0.4s);
+  @include radius(20px);
+  position: fixed;
+  bottom: 0;
+  top: 25px;
+  z-index: 14;
+  background-color: darken($variant-color-3, 6%);
+  &:not(.-open) {
+    top: 100%;
+    bottom: -100%;
+  }
 }

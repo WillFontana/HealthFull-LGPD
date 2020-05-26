@@ -1,27 +1,14 @@
 import React, { useState } from 'react';
-import Parallax from 'react-springy-parallax'
 // import { Link } from 'react-router-dom';
 
 export default function Welcome() {
-  const authed = useState(() => {
-    const user = localStorage.getItem('@app:user');
-    const token = localStorage.getItem('@app:token');
-    if (user && token) {
-      return true;
-    } else {
-      return false;
-    }
-  });
+  
 
 
 
   return (
     <>
-      {authed[0]
-        ? <span>Usuario autenticado</span>
-        : <>
-
-        </>
+      {/* 
       }
       <Parallax useRef='parallax' pages={3}>
         <Parallax.Layer
@@ -34,7 +21,7 @@ export default function Welcome() {
             Icons made by <a href="https://www.flaticon.com/authors/wichaiwi" title="Wichai.wi">Wichai.wi</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
           </div>
         </Parallax.Layer>
-      </Parallax>
+      </Parallax> */}
 
     </>
   );

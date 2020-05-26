@@ -1,0 +1,10 @@
+{
+  "sqltools.connections": [
+    {
+      "database": "${workspaceFolder}\\src/database/db.sqlite",
+      "dialect": "SQLite",
+      "name": "Teste de conexão"
+    }
+  ],
+  "sqltools.useNodeRuntime": true
+}
