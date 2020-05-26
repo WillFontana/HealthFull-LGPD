@@ -15,18 +15,18 @@ module.exports = {
       if (!match) {
         return response.status(401).json({ message: 'A senha inserida está incorreta' });
       }
-      const userId = await connection('users').where('name', usuario)
+      const { id } = await connection('users').where('name', usuario)
         .orWhere('email', usuario)
         .select('id').first();
 
-      const token = jwt.sign({ id: userId }, 'secret-key', {
-        expiresIn: '1m'
+      const token = jwt.sign({ id: id }, 'secret-key', {
+        expiresIn: '1d'
       });
 
-      const user = await connection('users').where('name', usuario).select({ name: 'name', email: 'email' }).first();
+      const user = await connection('users').where('id', id).select({ name: 'name', email: 'email' }).first();
 
 
-      return response.json({ user, token });
+      return response.json({ id, user, token });
     } catch (error) {
       console.log(error);
       return response.status(404).json({ message: error });
@@ -35,7 +35,7 @@ module.exports = {
 
   async index(request, response) {
     try {
-      const user = await connection('users').where('id', request.user.id)
+      const user = await connection('users').where('id', request.user)
       return response.json({ user });
     } catch (error) {
       console.log(error);
