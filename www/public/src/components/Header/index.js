@@ -7,7 +7,7 @@ export default function Header() {
 
   const [burguerState, setBurguerState] = useState('-closed');
   const [menuState, setMenuState] = useState('-closed');
-  function ToggleBurguer(params) {
+  function ToggleBurguer() {
     if (burguerState === '-open') {
       setBurguerState('-closed');
       setMenuState('-closed');
@@ -29,26 +29,26 @@ export default function Header() {
             <FiArrowLeft />
           </i>
         </Link>
-        <a className="nav-item">
+        <Link to="/dashboard" className="nav-item">
           <i className="svg-icon">
             <FiActivity />
           </i>
-        </a>
-        <a href="/dashboard" className="nav-item">
+        </Link>
+        <div className="nav-item">
           <div className={`menu-burguer ${burguerState}`} onClick={ToggleBurguer}>
             <div className="burguer"></div>
           </div>
-        </a>
-        <a href="/home" className="nav-item">
+        </div>
+        <Link to="/home" className="nav-item">
           <i className="svg-icon">
             <FiHome />
           </i>
-        </a>
-        <a href="/user" className="nav-item">
+        </Link>
+        <Link to="/user" className="nav-item">
           <i className="svg-icon">
             <FiUser />
           </i>
-        </a>
+        </Link>
       </nav>
       <aside className={`menu-overlay ${menuState}`}></aside>
     </>

@@ -4,7 +4,7 @@
   cursor: pointer;
   outline: none;
   .burguer {
-    @include size(35px, 4px);
+    @include size(35px, 3px);
     @include transition;
     @include radius;
     display: block;

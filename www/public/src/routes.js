@@ -6,7 +6,8 @@ import Header from './components/Header';
 
 // páginas:
 import Welcome from './pages/Welcome';
-import Dashboard from './pages/Home';
+import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Register from './pages/Register';
 
@@ -22,10 +23,12 @@ export default function Routes() {
   });
   return (
     <BrowserRouter>
-      {authed[0] ? <><Header></Header></> : <></>}
+      {authed[0] ? <><Header></Header></> : <>{
+      }</>}
       <Switch>
         <Route path="/" exact component={Welcome} />
-        <Route path="/home" component={Dashboard} />
+        <Route path="/home" component={Home} />
+        <Route path="/dashboard" component={Dashboard} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
       </Switch>
