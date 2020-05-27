@@ -8,12 +8,11 @@ module.exports = function (require, response, next) {
   }
 
   try {
-    const decode = jwt.verify(token, "secret-key");
+    const decode = jwt.verify(token, "Pão é bom");
     require.user = decode.id;
-    console.log(require.user);
     next();
   } catch (error) {
     console.log(error);
     response.status(500).send({ message: "token invalido" });
   }
-}
+} 
