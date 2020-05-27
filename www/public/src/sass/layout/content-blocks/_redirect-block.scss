@@ -2,15 +2,15 @@
   @include centerFlex;
   @include radius;
   @include transition;
-  background-color: $white;
-  padding: 0.5rem;
+  background-color: #F2F2F2;
+  padding:0.5rem  1.5rem;
   padding-bottom: 100%;
-  box-shadow: 0px 2px 5px 1px rgba($black-70, 0.6);
+  box-shadow: 0px 0px 15px 0px rgba($secondary-color, 0.3);
   cursor: pointer;
   position: relative;
   &:hover {
     @include transition(0.1s);
-    box-shadow: 0px 5px 15px 1px rgba($black-70, 0.6);
+    box-shadow: 0px 0px 20px 0px rgba($secondary-color, 0.6);
   }
   &:active {
     box-shadow: 0px 2px 0px 1px rgba($black-70, 0);
@@ -40,11 +40,11 @@
 .grid-cards {
   @include size(100%, auto);
   @include transition;
-  padding: 2rem;
+  padding: 2.5rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: auto;
-  grid-gap: 2rem;
+  grid-gap: 2.5rem;
   @include media-min(lg) {
     grid-template-columns: repeat(3, 1fr);
   }

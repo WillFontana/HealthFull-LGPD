@@ -1,23 +1,14 @@
 .menu-burguer {
-  @include size(80px);
-  @include radius(80px);
-  @include centerX;
-  @include transition;
+  @include size(100%);
   @include centerFlex;
   cursor: pointer;
   outline: none;
-  bottom: 20px;
-  position: fixed;
-  background-color: $primary-color;
-  box-shadow: 0px 6px 15px 1px rgba($variant-color-1, 0.5);
-  z-index: 20;
-  border: 1px solid $primary-color;
   .burguer {
-    @include size(45px, 4px);
+    @include size(35px, 3px);
     @include transition;
     @include radius;
     display: block;
-    background-color: $primary-color-contrast;
+    background-color: $white;
     position: relative;
     &::before,
     &::after {
@@ -25,7 +16,7 @@
       @include size(100%);
       @include radius;
       @include transition;
-      background-color: $primary-color-contrast;
+      background-color: $white;
       display: block;
       position: absolute;
     }
@@ -36,18 +27,13 @@
       bottom: -10px;
     }
   }
-  &:hover {
-    background-color: $variant-color-2;
-  }
-  &.-active {
-    background-color: $variant-color-3;
-    box-shadow: 0px 6px 15px 1px transparent;
+  &.-open {
     .burguer {
-      background-color: $primary-color;
+      background-color: $white;
       transform: rotate(45deg);
       &:before,
       &::after {
-        background-color: $primary-color;
+        background-color: $white;
         transform: rotate(90deg);
       }
       &::before {

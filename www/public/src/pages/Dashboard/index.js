@@ -1,8 +1,8 @@
 import React from 'react';
-import databaseSecurity from '../../assets/icons/lgpd/database.svg'
-import requirementSecurity from '../../assets/icons/lgpd/requirements.svg'
-import dateSecurity from '../../assets/icons/lgpd/date.svg'
-import hintsSecurity from '../../assets/icons/lgpd/list.svg'
+import testSecurity from '../../assets/icons/lgpd/test.svg'
+import historySecurity from '../../assets/icons/lgpd/history.svg'
+import dashboardSecurity from '../../assets/icons/lgpd/dashboard.svg'
+import highlightsSecurity from '../../assets/icons/lgpd/highlights.svg'
 // import {Link, useHistory } from 'react-router-dom';
 
 export default function Dashboard() {
@@ -13,45 +13,47 @@ export default function Dashboard() {
   // pushToLogin();
   return (
     <>
-      <div className="main-app">
+      <div className="main-app _mt-xl">
         <div className="grid-cards">
           <div className="card-block">
             <div className="card-content">
               <div className="card-icon">
-                <img src={databaseSecurity} alt="LGPD" className="image-fluid" />
+                <img src={testSecurity} alt="LGPD" className="image-fluid" />
               </div>
               <h3 className="typo-display-1 typo-color-primary _text-center">
-                O que é a LGPD?
+                Realizar teste
                 </h3>
             </div>
           </div>
           <div className="card-block">
             <div className="card-content">
               <div className="card-icon">
-                <img src={requirementSecurity} alt="LGPD" className="image-fluid" />
+                <img src={historySecurity} alt="LGPD" className="image-fluid" />
               </div>
               <h3 className="typo-display-1 typo-color-primary _text-center">
-                Quais seus requisitos?
+                Histórico <br />
+                 de testes
                 </h3>
             </div>
           </div>
           <div className="card-block">
             <div className="card-content">
               <div className="card-icon">
-                <img src={dateSecurity} alt="LGPD" className="image-fluid" />
+                <img src={dashboardSecurity} alt="LGPD" className="image-fluid" />
               </div>
               <h3 className="typo-display-1 typo-color-primary _text-center">
-                Datas e eventos relacionados
+                Meu <br /> desempenho
                 </h3>
             </div>
           </div>
           <div className="card-block">
             <div className="card-content">
               <div className="card-icon">
-                <img src={hintsSecurity} alt="LGPD" className="image-fluid" />
+                <img src={highlightsSecurity} alt="LGPD" className="image-fluid" />
               </div>
               <h3 className="typo-display-1 typo-color-primary _text-center">
-                Dicas e bons costumes
+                Meus <br />
+                 destaques
                 </h3>
             </div>
           </div>
@@ -59,4 +61,4 @@ export default function Dashboard() {
       </div>
     </>
   );
-}
+};

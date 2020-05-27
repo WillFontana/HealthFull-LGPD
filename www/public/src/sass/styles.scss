@@ -1,6 +1,6 @@
 // fonts
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;500;600;700;800&display=swap");
 // settings
 @import "./settings/variables";
 
@@ -51,9 +51,9 @@
 // form
 @import "./layout/form/check-box";
 @import "./layout/form/text-field";
-  // Login
-  @import "./layout/form/login/login-container";
 
+// Login
+@import "./layout/form/login/login-container";
 
 // header
 @import "./layout/header/header";
@@ -61,6 +61,7 @@
 @import "./layout/header/menu-mobile";
 @import "./layout/header/mobile-overlay";
 @import "./layout/header/nav";
+@import "./layout/header/top-header";
 
 // modais
 @import "./layout/modais/main-modal";

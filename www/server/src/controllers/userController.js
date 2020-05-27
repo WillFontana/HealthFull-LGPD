@@ -7,11 +7,27 @@ module.exports = {
   async create(request, response) {
     try {
       const { name, email } = request.body;
-      const id = crypto.randomBytes(4).toString('HEX')
+
+      var id = crypto.randomBytes(4).toString('HEX')
+
+      let matchId = await connection('users').where('id', id).select('*').first();
+
+      while (matchId) {       
+        id = crypto.randomBytes(4).toString('HEX')
+        matchId = await connection('users').where('id', id).select('*').first();
+      }
 
       const salt = await bcrypt.genSalt(10);
 
       const password = await bcrypt.hash(request.body.password, salt);
+
+      const matchUser = await connection('users').where('name', name)
+        .orWhere('email', email)
+        .select('*').first();
+
+      if (matchUser) {
+        return response.json({ message: 'O usuário já existe' });
+      }
 
       await connection('users').insert({
         id,
@@ -20,17 +36,12 @@ module.exports = {
         password
       });
 
-      const payload = {
-        user: {
-          id: id,
-        }
-      }
 
-      const token = jwt.sign({ id: id }, 'secret-key', {
-        expiresIn: 300,
+      const token = jwt.sign({ id }, 'Pão é bom', {
+        expiresIn: '1y',
       });
 
-      return response.json({ id, token, payload });
+      return response.json({ id, token });
     } catch (error) {
       console.log(error);
       return response.status(500).json({ message: 'Houve um erro ao cadastrar o usuário' });

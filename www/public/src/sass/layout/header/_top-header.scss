@@ -1,0 +1,65 @@
+.top-header {
+  @include size(100%, 40px);
+  @include centerFlex;
+  background-color: darken($variant-color-3, 6%);
+  position: relative;
+  position: fixed;
+  top: 0;
+  z-index: 18;
+  .svg-icon {
+    position: relative;
+    z-index: 4;
+    svg {
+      @include size(24px);
+      stroke: $contrast-color;
+    }
+  }
+  &:before {
+    @include size(100%, 60px);
+    content: "";
+    @include transition;
+    position: absolute;
+    background-color: transparent;
+    bottom: -60px;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0 -40px 0 0 darken($variant-color-3, 6%);
+  }
+}
+
+.bottom-navigator {
+  @include size(100%, 60px);
+  @include centerFlex;
+  background-color: $contrast-color;
+  position: relative;
+  position: fixed;
+  bottom: -1px;
+  z-index: 18;
+  .nav-item {
+    @include size(100%, 40px);
+    @include centerFlex;
+    position: relative;
+    z-index: 4;
+    border-right: 1px solid rgba($white, 0.1);
+    .svg-icon {
+      @include size(28px);
+      svg {
+        stroke: $white;
+      }
+    }
+  }
+  &:before {
+    @include size(100%, 60px);
+    content: "";
+    @include transition;
+    transform: rotate(180deg);
+    position: absolute;
+    background-color: transparent;
+    top: -60px;
+    width: 100%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    box-shadow: 0 -40px 0 0 $contrast-color;
+  }
+}
