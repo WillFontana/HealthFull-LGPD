@@ -8,8 +8,7 @@ module.exports = {
     try {
       const { name, email } = request.body;
 
-      // const id = crypto.randomBytes(4).toString('HEX')
-      let id = 'b1077532';
+      var id = crypto.randomBytes(4).toString('HEX')
 
       let matchId = await connection('users').where('id', id).select('*').first();
 
