@@ -1,2 +1,4 @@
 # pasta de dependencias e bibliotecas de desenvolvimento
 node_modules
+
+package-lock.json
