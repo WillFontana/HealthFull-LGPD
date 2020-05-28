@@ -12,7 +12,7 @@ module.exports = {
 
       let matchId = await connection('users').where('id', id).select('*').first();
 
-      while (matchId) {       
+      while (matchId) {
         id = crypto.randomBytes(4).toString('HEX')
         matchId = await connection('users').where('id', id).select('*').first();
       }
@@ -21,9 +21,7 @@ module.exports = {
 
       const password = await bcrypt.hash(request.body.password, salt);
 
-      const matchUser = await connection('users').where('name', name)
-        .orWhere('email', email)
-        .select('*').first();
+      const matchUser = await connection('users').where('email', email).select('*').first();
 
       if (matchUser) {
         return response.json({ message: 'O usuário já existe' });
