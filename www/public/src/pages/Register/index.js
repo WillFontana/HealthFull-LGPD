@@ -88,7 +88,7 @@ export default function Register() {
 
   return (
     <>
-      <div className="main-bgs" style={bgStyle}>
+      <section className="main-bgs" style={bgStyle}>
         <aside className="common-modal -bigger">
           <form className="login-container" onSubmit={handleRegister}>
             <div className="login-header _pl-md">
@@ -201,7 +201,7 @@ export default function Register() {
             </div>
           </form>
         </aside>
-      </div>
+      </section>
     </>
   )
 }

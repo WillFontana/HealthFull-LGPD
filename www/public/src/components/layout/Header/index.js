@@ -44,7 +44,7 @@ export default function Header() {
             <FiHome />
           </i>
         </Link>
-        <Link to="/user" className="nav-item">
+        <Link to="/profile" className="nav-item">
           <i className="svg-icon">
             <FiUser />
           </i>

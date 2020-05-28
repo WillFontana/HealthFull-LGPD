@@ -13,7 +13,7 @@ export default function Dashboard() {
   // pushToLogin();
   return (
     <>
-      <div className="main-app _mt-xl">
+      <section className="main-app _mt-xl">
         <div className="grid-cards">
           <div className="card-block">
             <div className="card-content">
@@ -58,7 +58,7 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };

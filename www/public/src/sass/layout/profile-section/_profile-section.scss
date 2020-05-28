@@ -1,0 +1,103 @@
+.profile-section {
+  @include size(100%, auto);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .profile-header {
+    @include size(100%, auto);
+    @include centerFlex;
+    padding: 20px 20px 20px;
+    position: relative;
+    margin-top: 40px;
+    .profile-picture {
+      @include size(181px);
+      @include radius(181px);
+      @include centerFlex;
+      background-color: $body-bg;
+      overflow: hidden;
+      position: relative;
+      z-index: 4;
+      .image-fluid {
+        @include size(160px);
+        @include radius(160px);
+      }
+      &::before {
+        content: "";
+        @include size(160px);
+        @include radius(160px);
+        @include absolute-all;
+        box-shadow: inset 0px 0px 10px 0px $contrast-color;
+      }
+      .picture-management {
+        @include size(100%, 60px);
+        @include centerX;
+        @include transition;
+        @include centerFlex;
+        bottom: -100%;
+        background-color: rgba($contrast-color, 0.6);
+        .svg-icon {
+          @include size(28px);
+          svg {
+            stroke: $white;
+          }
+        }
+      }
+      &:hover,
+      :active {
+        .picture-management {
+          bottom: 0;
+        }
+      }
+    }
+    .picuter-ornament {
+      @include size(190px);
+      @include radius(10%);
+      @include absolute-all;
+      &::before {
+        content: "";
+        @include size(190px);
+        @include radius(180px);
+        @include absolute-all;
+        border-left: 4px solid $secondary-color;
+        border-right: 4px solid $secondary-color;
+        // border-bottom: 14px solid $secondary-color;
+      }
+    }
+    &:before {
+      content: "";
+      @include size(auto, 4px);
+      @include radius(80%);
+      @include absolute-all;
+      left: 20px;
+      top: 10px;
+      right: 20px;
+      background-color: $secondary-color;
+    }
+  }
+  .profile-management {
+    @include size(100%, auto);
+    display: flex;
+    align-items: center;
+    padding: 0 10px 20px;
+    .prf_button {
+      @include centerFlex;
+      @include size(100%, 30px);
+      .svg-icon {
+        @include size(28px);
+        stroke: $secondary-color;
+        fill: $secondary-color;
+      }
+      &.-logout {
+        .svg-icon {
+          @include size(28px);
+          stroke: $brand-danger;
+        }
+      }
+    }
+  }
+  .profile-body {
+    .user-description {
+      padding: 0 3em;
+    }
+  }
+}

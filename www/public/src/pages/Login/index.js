@@ -111,7 +111,7 @@ export default function Login() {
 
   return (
     <>
-      <div id="main-body">
+      <section id="main-body">
         <aside className={`warning-box -${messageState} -${messageAnimation}`} id="current-warning">
           <i className="svg-icon">
             {messageIcon}
@@ -199,7 +199,7 @@ export default function Login() {
             </form>
           </aside >
         </div>
-      </div>
+      </section>
     </>
   );
 }

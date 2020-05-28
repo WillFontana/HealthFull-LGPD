@@ -13,4 +13,7 @@
       stroke: $value;
     }
   }
+  svg {
+    stroke: inherit;
+  }
 }
