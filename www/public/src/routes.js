@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import authed from './services/auth';
 
 // componentes:
 import Header from './components/layout/Header';
@@ -13,18 +15,10 @@ import Register from './pages/Register';
 import Profile from './pages/Profile';
 
 export default function Routes() {
-  const authed = useState(() => {
-    const user = localStorage.getItem('@app:user');
-    const token = localStorage.getItem('@app:token');
-    if (user && token) {
-      return true;
-    } else {
-      return false;
-    }
-  });
+
   return (
     <BrowserRouter>
-      {authed[0] && <><Header></Header></>}
+      {authed && <><Header></Header></>}
       <Switch>
         <Route path="/" exact component={Welcome} />
         <Route path="/home" component={Home} />
