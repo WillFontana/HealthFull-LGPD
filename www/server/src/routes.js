@@ -4,6 +4,8 @@ const userController = require('./controllers/userController');
 
 const sessionController = require('./controllers/sessionController');
 
+const profileController = require('./controllers/profileController');
+
 const auth = require('./middleware/auth');
 
 const routes = express.Router();
@@ -32,5 +34,15 @@ routes.post('/login', sessionController.create);
 
 // Autenticação do usuário
 routes.get('/login', auth, sessionController.index);
+
+/**
+ * Rotas dos dados dos perfis
+ */
+
+// Traz os dados do usuário
+routes.get('/profile', profileController.index);
+
+// Altera os dados do usuário
+routes.put('/profile', profileController.update);
 
 module.exports = routes;

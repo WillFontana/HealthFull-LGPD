@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
-module.exports = function (require, response, next) {
-  const token = require.header('token');
+module.exports = function (request, response, next) {
+  const token = request.header('token');
 
   if (!token) {
     return response.status(401).json({ message: "Erro de autenticação" });
@@ -9,7 +9,7 @@ module.exports = function (require, response, next) {
 
   try {
     const decode = jwt.verify(token, "Pão é bom");
-    require.user = decode.id;
+    request.user = decode.id;
     next();
   } catch (error) {
     console.log(error);
