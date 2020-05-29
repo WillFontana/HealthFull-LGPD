@@ -59,10 +59,12 @@ export default function Login() {
     }
     try {
       const response = await api.post('login', data);
-      const { token, user } = response.data;
+      const { id, token, user } = response.data;
       if (keepLoged) {
+        localStorage.setItem('@app:id', id);
         localStorage.setItem('@app:token', token);
-        localStorage.setItem('@app:user', JSON.stringify(user));
+        localStorage.setItem('@app:username', user.name);
+        localStorage.setItem('@app:useremail', user.email);
       }
       history.push('/home');
     } catch (error) {

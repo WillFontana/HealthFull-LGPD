@@ -1,5 +1,5 @@
 const authed = () => {
-  const user = localStorage.getItem('@app:user');
+  const user = localStorage.getItem('@app:username');
   const token = localStorage.getItem('@app:token');
 
   if (user && token) {
