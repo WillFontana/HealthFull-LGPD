@@ -24,7 +24,7 @@ export default function Header() {
         </i>
       </header>
       <nav className={`bottom-navigator`}>
-        <Link to="/login" className="nav-item">
+        <Link to="/" className="nav-item">
           <i className="svg-icon">
             <FiArrowLeft />
           </i>

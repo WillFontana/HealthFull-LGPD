@@ -1,6 +1,6 @@
 .card-block {
   @include centerFlex;
-  @include radius;
+  @include radius(30px);
   @include transition;
   background-color: #F2F2F2;
   padding:0.5rem  1.5rem;
