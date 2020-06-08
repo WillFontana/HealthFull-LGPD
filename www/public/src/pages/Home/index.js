@@ -3,19 +3,14 @@ import databaseSecurity from '../../assets/icons/lgpd/database.svg'
 import requirementSecurity from '../../assets/icons/lgpd/requirements.svg'
 import dateSecurity from '../../assets/icons/lgpd/date.svg'
 import hintsSecurity from '../../assets/icons/lgpd/list.svg'
-// import {Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function Dashboard() {
-  // const history = useHistory();
-  // function pushToLogin() {
-  //   // history.push('/login');
-  // }
-  // pushToLogin();
   return (
     <>
       <section className="main-app _mt-xl">
         <div className="grid-cards">
-          <div className="card-block">
+          <Link to="/about" className="card-block">
             <div className="card-content">
               <div className="card-icon">
                 <img src={databaseSecurity} alt="LGPD" className="image-fluid" />
@@ -24,8 +19,9 @@ export default function Dashboard() {
                 O que é a LGPD?
                 </h3>
             </div>
-          </div>
-          <div className="card-block">
+          </Link>
+
+          <Link to="/about" className="card-block">
             <div className="card-content">
               <div className="card-icon">
                 <img src={requirementSecurity} alt="LGPD" className="image-fluid" />
@@ -34,7 +30,7 @@ export default function Dashboard() {
                 Quais seus requisitos?
                 </h3>
             </div>
-          </div>
+          </Link>
           <div className="card-block">
             <div className="card-content">
               <div className="card-icon">

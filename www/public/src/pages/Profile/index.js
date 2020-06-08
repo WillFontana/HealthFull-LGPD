@@ -11,7 +11,7 @@ export default function Profile() {
   const history = useHistory();
 
   const username = localStorage.getItem('@app:username');
-  const userId = localStorage.getItem('@app:id');
+  // const userId = localStorage.getItem('@app:id');
   const useremail = localStorage.getItem('@app:useremail');
 
   function handleLogout() {
