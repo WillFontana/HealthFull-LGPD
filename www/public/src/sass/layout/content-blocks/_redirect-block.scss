@@ -46,6 +46,6 @@
   grid-auto-rows: auto;
   grid-gap: 2.5rem;
   @include media-min(lg) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }

@@ -1,5 +1,12 @@
-hr, .divider-line {
-  height: $divider-line-width;
+hr,
+.divider-line {
+	height: $divider-line-width;
 	border: 0;
 	border-top: $divider-line-width solid $divider-line-bg;
+}
+
+.divider-contrast {
+	@include size(100%, 1px);
+	background-color: $contrast-color;
+	margin: 10px 0;
 }

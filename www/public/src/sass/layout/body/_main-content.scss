@@ -21,5 +21,6 @@ body {
 
 .main-app {
   @include size(100vw, auto);
-  padding-top: 60px;
+  padding-top: 10px;
+  padding-bottom: 60px;
 }

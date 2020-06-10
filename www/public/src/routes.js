@@ -17,11 +17,14 @@ import Register from './pages/Register';
 import Profile from './pages/Profile';
 
 // Informações
-import About from './infos/AboutLgbt';
+import About from './infos/AboutLgbd';
 import Requisitos from './infos/Requisitos';
 import DatasEventos from './infos/Datas';
 import Hints from './infos/Dicas';
-
+import LGPDnaSaude from './infos/LgpdSaude';
+import AlemDaProgramacao from './infos/AlemProgramadores';
+import MedicosEmFoco from './infos/MedicosFoco';
+import MedicosEmPaciente from './infos/MedicosPacientes';
 // Testes de desempenho
 
 
@@ -43,6 +46,11 @@ export default function Routes() {
         <Route path="/requisitos" component={Requisitos} />
         <Route path="/datas-e-eventos" component={DatasEventos} />
         <Route path="/dicas" component={Hints} />
+        
+        <Route path="/lgpd-na-saude" component={LGPDnaSaude} />
+        <Route path="/alem-da-programacao" component={AlemDaProgramacao} />
+        <Route path="/medicos-em-foco" component={MedicosEmFoco} />
+        <Route path="/medicos-e-pacientes" component={MedicosEmPaciente} />
       </Switch>
     </BrowserRouter>
   );

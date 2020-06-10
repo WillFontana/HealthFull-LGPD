@@ -11,7 +11,6 @@ export default function Profile() {
   const history = useHistory();
 
   const username = localStorage.getItem('@app:username');
-  // const userId = localStorage.getItem('@app:id');
   const useremail = localStorage.getItem('@app:useremail');
 
   function handleLogout() {
@@ -65,7 +64,7 @@ export default function Profile() {
                 </i>
                 <p className="_pl-sm typo-sub-heading">
                   Editar perfil
-            </p>
+                </p>
               </div>
               <div className="prf_button -logout" onClick={handleLogout}>
                 <p className="_pr-sm typo-sub-heading">
@@ -155,7 +154,9 @@ export default function Profile() {
               </i>
             </div>
           </div>
-          <div className="profile-body"></div>
+          <div className="profile-body">
+            
+          </div>
         </aside>
       </>
     </>

@@ -37,7 +37,6 @@
     grid-gap: 2.5rem;
     padding: 20px 20px 0;
     .text-card {
-      @include centerFlex;
       @include radius(10px);
       @include transition;
       padding: 20px;

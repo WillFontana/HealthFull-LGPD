@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FiEye, FiEyeOff, FiArrowLeft, FiSquare, FiCheckSquare } from 'react-icons/fi';
+import { FiEye, FiEyeOff, FiArrowLeft, FiInfo, FiAlertCircle, FiSquare, FiCheckSquare } from 'react-icons/fi';
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api';
 
@@ -12,21 +12,57 @@ export default function Register() {
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
 
+  const [messageTitle, setMessageTitle] = useState('Titulo Mensagem');
+  const [messageBody, setMessageBody] = useState('Texto mensagem');
+  const [messageIcon, setMessageIcon] = useState(FiInfo);
+  const [messageState, setMessageState] = useState('info');
+  const [messageAnimation, setMessageAnimation] = useState('fading');
+
+
   const history = useHistory();
+
+  function createWarning(Icon, Title, Body, State) {
+    setMessageIcon(Icon);
+    setMessageTitle(Title);
+    setMessageBody(Body);
+    setMessageState(State);
+    setMessageAnimation('show');
+    setTimeout(() => {
+      setMessageAnimation('fading');
+    }, 6000);
+  }
 
   async function handleRegister(e) {
     e.preventDefault();
     if (name === '') {
-      alert('Insira um nome de usuario');
+      createWarning(FiAlertCircle,
+        'Campo Vazio',
+        'Um nome de usuário é necessário',
+        'error');
       return false;
     } else if (email === '') {
-      alert('Insira um email válido ');
+      createWarning(FiAlertCircle,
+        'Campo com erro',
+        'É necessário inserir um email válido',
+        'error');
       return false;
     } else if (password === '') {
-      alert('Insira um email válido ');
+      createWarning(FiAlertCircle,
+        'Campo Vazio',
+        'É necessário definir uma senha de acesso',
+        'error');
       return false;
     } else if (passwordConfirm === '') {
-      alert('Voce precisa confirmar sua senha');
+      createWarning(FiAlertCircle,
+        'Campo Vazio',
+        'É necessário confirmar sua senha',
+        'error');
+      return false;
+    } else if (passwordConfirm !== password) {
+      createWarning(FiAlertCircle,
+        'Campos com erro',
+        'As senhas inseridas não conferem',
+        'error');
       return false;
     }
     const data = {
@@ -37,10 +73,14 @@ export default function Register() {
     try {
       const response = await api.post('users', data);
       alert(`Seu ID de acesso: ${response.data.id}`);
-      history.push('/');
+      history.push('/home');
     } catch (error) {
       console.log(error);
-      alert(`Ocorreu um erro ao realizar o cadastro`);
+      createWarning(FiAlertCircle,
+        'Falha no cadastro',
+        `${error}`,
+        'error');
+        return false;
     }
   }
 
@@ -89,6 +129,17 @@ export default function Register() {
   return (
     <>
       <section className="main-bgs" style={bgStyle}>
+        <aside className={`warning-box -${messageState} -${messageAnimation}`} id="current-warning">
+          <i className="svg-icon">
+            {messageIcon}
+          </i>
+          <p className="text typo-body-2 typo-fw-regular">
+            <span className="typo-sub-heading typo-fw-bold _pr-sm">
+              {messageTitle}
+            </span>
+            {messageBody}
+          </p>
+        </aside>
         <aside className="common-modal -bigger">
           <form className="login-container" onSubmit={handleRegister}>
             <div className="login-header _pl-md">
