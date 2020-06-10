@@ -35,7 +35,7 @@
   position: relative;
   position: fixed;
   bottom: -1px;
-  z-index: 18;
+  z-index: 24;
   .nav-item {
     @include size(100%, 40px);
     @include centerFlex;

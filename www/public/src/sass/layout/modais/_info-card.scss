@@ -5,6 +5,8 @@
   padding-top: 0px;
   padding-bottom: 20px;
   margin-bottom: 60px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   .info-card-header {
     @include size(100%, auto);
     @include centerFlex-y;
@@ -14,10 +16,11 @@
     padding: 20px 20px 15px;
     background-color: $white;
     border-bottom: 1px solid $primary-color;
-    z-index: 4;
+    z-index: 20;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;  
     .return-path {
       @include size(24px);
-      margin-bottom: 5px;
       margin-right: 10px;
       .svg-icon {
         @include size(100%);

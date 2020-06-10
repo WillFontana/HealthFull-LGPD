@@ -6,11 +6,6 @@ import highlightsSecurity from '../../assets/icons/lgpd/highlights.svg'
 // import {Link, useHistory } from 'react-router-dom';
 
 export default function Dashboard() {
-  // const history = useHistory();
-  // function pushToLogin() {
-  //   // history.push('/login');
-  // }
-  // pushToLogin();
   return (
     <>
       <section className="main-app _mt-xl">

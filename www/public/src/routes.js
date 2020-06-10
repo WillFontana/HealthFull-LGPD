@@ -22,6 +22,9 @@ import Requisitos from './infos/Requisitos';
 import DatasEventos from './infos/Datas';
 import Hints from './infos/Dicas';
 
+// Testes de desempenho
+
+
 export default function Routes() {
 
   return (

@@ -55,7 +55,7 @@ $scrollbar-background:        $secondary-color;
 
 $line-height-base:            1.5 !default;
 $font-base:  				          'Roboto', sans-serif !default;
-$font-face:  				          'Baloo Bhaina 2', cursive !default;
+$font-face:  				          'Open Sans', sans-serif !default;
 $font-size-root:          		10px !default;
 $fw-thin: 							      100 !default;
 $fw-light: 						        300 !default;
@@ -72,18 +72,18 @@ $typo-color-light-text-primary: $white !default;
 $typo-color-light-text-secondary: rgba($white, .7) !default;
 
 $typo-display-2-font: 				$font-face !default;
-$typo-display-2-font-size: 	  34px !default;
-$typo-display-2-font-size-resp: 30px !default;
+$typo-display-2-font-size: 	  34rem !default;
+$typo-display-2-font-size-resp: 30rem !default;
 $typo-display-2-font-weight:  $fw-regular !default;
 
 $typo-display-1-font: 				$font-face !default;
-$typo-display-1-font-size: 		30px !default;
-$typo-display-1-font-size-resp: 26px !default;
+$typo-display-1-font-size: 		30rem !default;
+$typo-display-1-font-size-resp: 26rem !default;
 $typo-display-1-font-weight: 	$fw-regular !default;
 
 $typo-headline-font: 				  $font-face !default;
-$typo-headline-font-size: 		24px !default;
-$typo-headline-font-size-resp: 20px !default;
+$typo-headline-font-size: 		24rem !default;
+$typo-headline-font-size-resp: 20rem !default;
 $typo-headline-font-weight: 	$fw-regular !default;
 
 $typo-sub-heading-font: 			$font-face !default;

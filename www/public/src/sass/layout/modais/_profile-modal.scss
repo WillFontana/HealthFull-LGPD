@@ -1,0 +1,38 @@
+.profile-modal {
+  @include size(auto);
+  @include absolute-all;
+  @include transition;
+  top: 40px;
+  position: fixed;
+  overflow-y: scroll;
+  background-color: $variant-color-3;
+  z-index: 20;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  .profile-header {
+    @include centerFlex-y;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    padding: 20px;
+    background-color: $white;
+    border-bottom: 2px solid $secondary-color;
+    .close-icon {
+      @include size(24px);
+      @include centerY;
+      right: 20px;
+      .svg-icon {
+        @include size(100%);
+        stroke: $secondary-color;
+      }
+    }
+  }
+  .profile-body {
+    
+  }
+  &:not(.-open) {
+    top: 100%;
+    bottom: -100%;
+  }
+}

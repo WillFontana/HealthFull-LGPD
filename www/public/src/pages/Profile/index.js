@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import dummyProfilePicture from '../../assets/profiles/dummy_picture.png';
-import { FiCamera, FiEdit3, FiLogOut } from 'react-icons/fi';
+import { FiCamera, FiEdit3, FiLogOut, FiX } from 'react-icons/fi';
 import api from '../../services/api';
 import { useHistory } from 'react-router-dom';
 
@@ -22,6 +22,8 @@ export default function Profile() {
 
   const [userProfile, setUserProfile] = useState({});
 
+  const [modalProfileState, setModalState] = useState('-closed');
+
   function Profile() {
     try {
       useEffect(() => {
@@ -36,6 +38,8 @@ export default function Profile() {
   function pushToLogin() {
     history.push('/login');
   }
+
+
   Profile();
   return (
 
@@ -55,7 +59,7 @@ export default function Profile() {
               <div className="picuter-ornament"></div>
             </div>
             <div className="profile-management">
-              <div className="prf_button -edit">
+              <div className="prf_button -edit" onClick={() => { setModalState('-open') }}>
                 <i className="svg-icon">
                   <FiEdit3 />
                 </i>
@@ -100,7 +104,7 @@ export default function Profile() {
                   </>
                 }
                 {/* Profissão do usuário */}
-                {userProfile.city  && userProfile.uf &&
+                {userProfile.city && userProfile.uf &&
                   <>
                     <p className="typo-body-2 _mt-md typo-color-dark-secondary">
                       Moradia atual:
@@ -138,6 +142,22 @@ export default function Profile() {
           :
           pushToLogin()
       }
+
+      <>
+        <aside className={`profile-modal ${modalProfileState}`}>
+          <div className="profile-header">
+            <h2 className="typo-display-2 typo-color-dark-secondary">
+              Editar dados do perfil
+            </h2>
+            <div className="close-icon" onClick={() => { setModalState('-close') }}>
+              <i className="svg-icon">
+                <FiX />
+              </i>
+            </div>
+          </div>
+          <div className="profile-body"></div>
+        </aside>
+      </>
     </>
   );
 };
