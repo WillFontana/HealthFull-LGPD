@@ -5,8 +5,8 @@ import dateSecurity from '../../assets/icons/lgpd/date.svg';
 import hintsSecurity from '../../assets/icons/lgpd/list.svg';
 import LgpdHealth from '../../assets/icons/lgpd/lgpdSaude.svg';
 import beyondProgram from '../../assets/icons/lgpd/beyondProgram.svg';
-import medicalFocus from '../../assets/icons/lgpd/medicalFocus.svg';
-import MedicoPacient from '../../assets/icons/lgpd/MedicoPacient.svg';
+// import medicalFocus from '../../assets/icons/lgpd/medicalFocus.svg';
+// import MedicoPacient from '../../assets/icons/lgpd/MedicoPacient.svg';
 import { Link } from 'react-router-dom';
 
 export default function Dashboard() {
@@ -71,26 +71,6 @@ export default function Dashboard() {
               </div>
               <h3 className="typo-display-1 typo-color-primary _text-center">
                 Muito além da programação
-              </h3>
-            </div>
-          </Link>
-          <Link to="/medicos-em-foco" className="card-block">
-            <div className="card-content">
-              <div className="card-icon">
-                <img src={medicalFocus} alt="LGPD" className="image-fluid" />
-              </div>
-              <h3 className="typo-display-1 typo-color-primary _text-center">
-                Médicos em foco
-              </h3>
-            </div>
-          </Link>
-          <Link to="/medicos-e-pacientes" className="card-block">
-            <div className="card-content">
-              <div className="card-icon">
-                <img src={MedicoPacient} alt="LGPD" className="image-fluid" />
-              </div>
-              <h3 className="typo-display-1 typo-color-primary _text-center">
-                Médicos e pacientes
               </h3>
             </div>
           </Link>

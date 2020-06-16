@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import dummyProfilePicture from '../../assets/profiles/dummy_picture.png';
-import { FiCamera, FiEdit3, FiLogOut, FiX } from 'react-icons/fi';
+import { FiCamera, FiEdit3, FiLogOut, FiX, FiEye, FiEyeOff, FiArrowLeft } from 'react-icons/fi';
 import api from '../../services/api';
 import { useHistory } from 'react-router-dom';
 
@@ -13,15 +13,35 @@ export default function Profile() {
   const username = localStorage.getItem('@app:username');
   const useremail = localStorage.getItem('@app:useremail');
 
+
+  const [profileEditName, setProfileEditName] = useState(username);
+  const [profileEditEmail, setProfileEditEmail] = useState(useremail);
+
+  const [profileEditPassword, setProfileEditPassword] = useState();
+  const [profileEditConfirmPassword, setProfileEditConfirmPassword] = useState();
+
+  const [profileEditAge, setProfileEditAge] = useState();
+  const [profileEditBirthday, setProfileEditBirthday] = useState();
+  const [profileEditJob, setProfileEditJob] = useState();
+  const [profileEditUF, setProfileEditUF] = useState();
+  const [profileEditCity, setProfileEditCity] = useState();
+
+
   function handleLogout() {
     localStorage.removeItem('@app:token');
     localStorage.removeItem('@app:user');
     window.location.reload(false);
   }
 
+  function handleChangeUserData() {
+    
+  }
+
   const [userProfile, setUserProfile] = useState({});
 
   const [modalProfileState, setModalState] = useState('-closed');
+
+  const [popupModalState, setPopupModalState] = useState('-closed');
 
   function Profile() {
     try {
@@ -33,10 +53,64 @@ export default function Profile() {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
+
   function pushToLogin() {
     history.push('/login');
+  };
+
+  function applyUsed(e) {
+    let input = e.target.id;
+    let inputValue = e.target.value.trim();
+    if (inputValue !== '') {
+      document.getElementById(input).classList.add("-used");
+    } else {
+      document.getElementById(input).classList.remove("-used");
+    }
+  };
+
+  function applyMaskMaxLenght(e, number) {
+    let inputVal = e.target.value.length
+    console.log(inputVal);
+    console.log(number);
+    if (inputVal >= number) {
+      e.preventDefault();
+    }
+  };
+
+  function toggleAllowSeePassword(idButton, idInput) {
+    let passwordInput = document.getElementById(idInput);
+    let passwordToggler = document.getElementById(idButton);
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      passwordToggler.classList.add('-show');
+    } else {
+      passwordInput.type = "password";
+      passwordToggler.classList.remove('-show');
+    }
+
+  };
+
+  function clearPassworEdit() {
+    document.getElementById('txUserEditPassword').value = '';
+    document.getElementById('txUserConfirmPassword').value = '';
+    setPopupModalState('-closed');
   }
+
+  function checkPasswords(e) {
+    applyUsed(e)
+    if (profileEditConfirmPassword !== '' && profileEditPassword !== '') {
+      if (profileEditConfirmPassword !== profileEditPassword) {
+        document.getElementById('txUserConfirmPassword').classList.add('-error');
+        document.getElementById('txUserConfirmPassword').classList.remove('-verified');
+        document.getElementById('submitNewPassword').classList.add('-disabled')
+      } else {
+        document.getElementById('txUserConfirmPassword').classList.remove('-error')
+        document.getElementById('txUserConfirmPassword').classList.add('-verified')
+        document.getElementById('submitNewPassword').classList.remove('-disabled')
+      }
+    }
+  };
 
 
   Profile();
@@ -154,8 +228,173 @@ export default function Profile() {
               </i>
             </div>
           </div>
-          <div className="profile-body">
-            
+          <form className="profile-body">
+            <div className="main-form">
+
+              <div className="text-box">
+                <input type="text" value={profileEditName}
+                  onKeyUp={applyUsed}
+                  onChange={e => setProfileEditName(e.target.value)}
+                  className="input -forced-used" name="txEditUserName" id="txEditUserName" />
+                <label htmlFor="txEditUserName" className="label">
+                  <span className="text">
+                    Nome cadastrado
+                  </span>
+                </label>
+              </div>
+
+              <div className="text-box">
+                <input type="email" value={profileEditEmail}
+                  onKeyUp={applyUsed}
+                  onChange={e => setProfileEditEmail(e.target.value)}
+                  className="input -forced-used" name="txEditUserEmail" id="txEditUserEmail" />
+                <label htmlFor="txEditUserEmail" className="label">
+                  <span className="text">
+                    Email cadastrado
+                  </span>
+                </label>
+              </div>
+
+              <div className="text-box">
+                <input type="text" value={profileEditJob}
+                  onKeyUp={applyUsed}
+                  onChange={e => setProfileEditJob(e.target.value)}
+                  className="input" name="txEditUserJob" id="txEditUserJob" />
+                <label htmlFor="txEditUserJob" className="label">
+                  <span className="text">
+                    Sua profissão
+                  </span>
+                </label>
+              </div>
+
+              <div className="text-box">
+                <input type="text" value={profileEditUF}
+                  onKeyUp={applyUsed}
+                  onChange={e => setProfileEditUF(e.target.value)}
+                  className="input" name="txEditUserUF" id="txEditUserUF" />
+                <label htmlFor="txEditUserUF" className="label">
+                  <span className="text">
+                    UF
+                  </span>
+                </label>
+              </div>
+
+              <div className="text-box">
+                <input type="text" value={profileEditCity}
+                  onKeyUp={applyUsed}
+                  onChange={e => setProfileEditCity(e.target.value)}
+                  className="input" name="txEditUserCity" id="txEditUserCity" />
+                <label htmlFor="txEditUserCity" className="label">
+                  <span className="text">
+                    Cidade de moradia
+                  </span>
+                </label>
+              </div>
+
+              <div className="text-box">
+                <input type="number" value={profileEditAge}
+                  onKeyPress={e => applyMaskMaxLenght(e, 2)}
+                  onKeyUp={applyUsed}
+                  onChange={e => setProfileEditAge(e.target.value)}
+                  className="input" name="txEditUserAge" id="txEditUserAge"
+                  max={2} />
+                <label htmlFor="txEditUserAge" className="label">
+                  <span className="text">
+                    Sua idade
+                  </span>
+                </label>
+              </div>
+
+              <div className="text-box">
+                <input type="date" value={profileEditBirthday}
+                  onKeyPress={e => applyMaskMaxLenght(e, 11)}
+                  onKeyUp={applyUsed}
+                  onChange={e => setProfileEditBirthday(e.target.value)}
+                  className="input -forced-used" name="txEditUserBirthday" id="txEditUserBirthday"
+                  max={8} />
+                <label htmlFor="txEditUserBirthday" className="label">
+                  <span className="text">
+                    O dia do seu nascimento
+                  </span>
+                </label>
+              </div>
+              <div className="form-footer">
+                <div onClick={() => { setPopupModalState('-show') }} className="main-button -danger">
+                  <p className="text">
+                    Alterar minha senha
+                </p>
+                </div>
+                <div className="main-button">
+                  <p className="text">
+                    Atualizar perfil
+                  </p>
+                </div>
+              </div>
+            </div>
+          </form>
+        </aside>
+        <aside className={`popup-modal ${popupModalState}`}>
+          <div className="popup-content">
+            <div className="popup-header">
+              <div className="return-path" onClick={clearPassworEdit}>
+                <i className="svg-icon">
+                  <FiArrowLeft />
+                </i>
+              </div>
+              <h3 className="text typo-headline typo-fw-regular typo-color-dark-secondary">
+                Alterar a senha de usuário
+            </h3>
+            </div>
+            <form className="popup-form">
+              <div className="text-box">
+                <input type="password"
+                  onChange={e => setProfileEditPassword(e.target.value)}
+                  onKeyUp={applyUsed}
+                  className="input -iconed" name="txUserEditPassword" id="txUserEditPassword" />
+                <label htmlFor="txUserEditPassword" className="label">
+                  <div className="text">
+                    Nova senha
+              </div>
+                </label>
+                <div className="icon-box" onClick={e => { toggleAllowSeePassword('allowSeePassowrdToggler', 'txUserEditPassword') }} id="allowSeePassowrdToggler">
+                  <i className="svg-icon -eye allow">
+                    <FiEye></FiEye>
+                  </i>
+                  <i className="svg-icon -eye unallow">
+                    <FiEyeOff></FiEyeOff>
+                  </i>
+                </div>
+              </div>
+
+              <div className="text-box">
+                <input type="password"
+                  onChange={e => setProfileEditConfirmPassword(e.target.value)}
+                  onKeyUp={checkPasswords}
+                  className="input -iconed" name="txUserConfirmPassword" id="txUserConfirmPassword" />
+                <label htmlFor="txUserConfirmPassword" className="label">
+                  <div className="text">
+                    Confirmar nova senha
+              </div>
+                </label>
+                <div className="icon-box" onClick={e => { toggleAllowSeePassword('allowSeeConfirmPassowrdToggler', 'txUserConfirmPassword') }}
+                  id="allowSeeConfirmPassowrdToggler">
+                  <i className="svg-icon -eye allow">
+                    <FiEye></FiEye>
+                  </i>
+                  <i className="svg-icon -eye -off unallow">
+                    <FiEyeOff></FiEyeOff>
+                  </i>
+                </div>
+              </div>
+              <div className="popup-form-footer">
+                <button className="main-button" id="submitNewPassword">
+                  <p className="text">
+                    Atualizar senha
+                  </p>
+                </button>
+              </div>
+            </form>
+
           </div>
         </aside>
       </>

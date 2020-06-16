@@ -3,6 +3,7 @@
   @include transition;
   @include size(auto, $button-base-height);
   @include centerFlex;
+  display: inline-flex;
   outline: none;
   user-select: none;
   border: 2px solid $button-base-bg;
@@ -143,6 +144,12 @@
   &.-danger {
     border-color: $brand-danger;
     background-color: $brand-danger;
+    .text {
+      color: $white;
+    }
+    .svg-icon {
+      stroke: $white;
+    }
     &:hover {
       border-color: lighten($brand-danger, 10%);
       background-color: lighten($brand-danger, 10%);

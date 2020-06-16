@@ -4,6 +4,7 @@
   .input {
     @include size(100%, 40px);
     @include radius(3px);
+    border-bottom-left-radius: 10px;
     outline: none;
     background: transparent;
     z-index: 2;
@@ -18,6 +19,7 @@
     font-family: $font-face;
     &:focus,
     &.-used,
+    &.-forced-used,
     &.-error,
     &.-validated {
       + .label {
@@ -38,7 +40,8 @@
     &:focus {
       border-color: $primary-color-lighten;
     }
-    &.-used{
+    &.-used,
+    &.-forced-used {
       border-color: $primary-color-darken;
       &.-verified {
         border-color: $brand-success;
@@ -122,13 +125,12 @@
   @include size(100%, auto);
   @include centerFlex;
   .text-box {
-    +.text-box {
+    + .text-box {
       margin-top: 0px;
       margin-left: 20px;
     }
   }
-  +.text-box {
+  + .text-box {
     margin-top: 20px;
-
   }
 }

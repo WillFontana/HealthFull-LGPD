@@ -29,7 +29,8 @@
     }
   }
   .profile-body {
-    
+    background-color: $white;
+    padding-top: 40px;
   }
   &:not(.-open) {
     top: 100%;

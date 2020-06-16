@@ -19,10 +19,14 @@ export default function MedicosEmFoco() {
         <div className="info-card-body -fr1 -first">
           <div className="text-card">
             <p className="text typo-body-2 typo-color-dark-primary">
-            
+            Todas as informações detidas pelas clinicas só poderão ser armazenadas com o consentimento dos pacientes.
+            Além desses, a clinica também é responsavel pelos dados de funcionários, fornecedores e quanquer outra pessoa, física ou juridica com a qual mantenha relação.
             </p>
           </div>
         </div>
+        <h2 className="text typo-headline typo-color-dark-primary _text-center _mt-lg">
+         Para adequar-se a LGPD:
+        </h2>
      
        
       </aside>

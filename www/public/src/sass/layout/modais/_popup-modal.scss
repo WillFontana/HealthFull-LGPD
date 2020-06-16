@@ -1,0 +1,48 @@
+.popup-modal {
+  @include absolute-all;
+  @include centerFlex;
+  position: fixed;
+  background-color: rgba($black-90, 0.4);
+  z-index: 28;
+  .popup-content {
+    @include size(90%, auto);
+    @include radius(20px);
+    max-height: 90%;
+    overflow: scroll;
+    background-color: $white;
+    .popup-header {
+      @include size(100%, 60px);
+      display: inline-flex;
+      align-items: center;
+      padding: 0 20px;
+      border-bottom: 2px solid $secondary-color;
+      position: sticky;
+      top: 0;
+      .return-path {
+        @include size(20px);
+        .svg-icon {
+          @include size(20px);
+          stroke: $secondary-color;
+        }
+        + .text {
+          margin-left: 10px;
+        }
+      }
+      + .popup-form {
+        padding-top: 30px;
+      }
+    }
+    .popup-form {
+      padding: 20px;
+      .popup-form-footer {
+        padding-top: 20px;
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  }
+  &:not(.-show) {
+    opacity: 0;
+    z-index: -1;
+  }
+}
